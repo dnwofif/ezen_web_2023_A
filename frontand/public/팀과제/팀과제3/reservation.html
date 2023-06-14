@@ -6,11 +6,13 @@
 	<link href="reservation.css" rel="stylesheet">
 </head>
 <body>
+	
 	<div>	<!-- 웹페이지 전체 시작 -->
 		<div id="header">	<!--  헤더 시작 -->
 			<div id="h_Logo">
 				<img src="img/logo.png">
 			</div>
+			
 			<div id="h_menus">
 				<ul class="top_menu">
 					<li>스튜디오 소개</li>
@@ -22,38 +24,37 @@
 			</div>
 		</div> <!--  헤더 end -->
 		
-		 
-		 <div> <!-- 본문 시작 -->
-			<img src="img/sub_reservation.jpg">
-			<div>
-<!-- 				<div>
+		<img id="main_img"src="img/sub_reservation.jpg"> 
+		<div> <!-- 본문 시작 -->
+			<div class="body">
+ 				<div class="left_body">
 					<h5>예약 날짜를 선택해 주세요</h5>
 					<h5> ◀ 2021.09 ▶</h5>
-					<table>
+					<table class="fee_table">
 						<tr>
-							<th>일</th>	<th>월</th>	<th>화</th>	<th>수</th>	<th>목</th>	<th>금</th>	<th>토</th>
+							<th class="sun_rad">일</th>	<th>월</th>	<th>화</th>	<th>수</th>	<th>목</th>	<th>금</th>	<th>토</th>
 						</tr>
 						<tr>
-							<td>29</td>	<td>30</td>	<td>31</td>	<td>01</td>	<td>02</td>	<td>03</td>	<td>04</td>
+							<td class="sun_rad">29</td>	<td>30</td>	<td>31</td>	<td>01</td>	<td>02</td>	<td>03</td>	<td>04</td>
 						</tr>
 						<tr>
-							<td>05</td>	<td>06</td>	<td>07</td>	<td>08</td>	<td>09</td>	<td>10</td>	<td>11</td>
+							<td class="sun_rad">05</td>	<td>06</td>	<td>07</td>	<td>08</td>	<td>09</td>	<td>10</td>	<td>11</td>
 						</tr>
 						<tr>
-							<td>12</td>	<td>13</td>	<td>14</td>	<td>15</td>	<td>16</td>	<td>17</td>	<td>18</td>
+							<td class="sun_rad">12</td>	<td>13</td>	<td>14</td>	<td>15</td>	<td>16</td>	<td>17</td>	<td>18</td>
 						</tr>
 						<tr>
-							<td>19</td>	<td>20</td>	<td>21</td>	<td>22</td>	<td>23</td>	<td>24</td>	<td>25</td>
+							<td class="sun_rad">19</td>	<td>20</td>	<td>21</td>	<td>22</td>	<td>23</td>	<td>24</td>	<td>25</td>
 						</tr>
 						<tr>
-							<td>26</td>	<td>27</td>	<td>28</td>	<td>29</td>	<td>30</td>			
+							<td class="sun_rad">26</td>	<td>27</td>	<td>28</td>	<td>29</td>	<td>30</td>			
 						</tr>
 					</table>
-				</div> -->
+				</div>
 				
 				
 				
-<!-- 				<div>
+	 			<div class="right_body">
 					<h4>예약 안내</h4>
 						<ul>
 							<li>1일전 예약해 주세요.</li>
@@ -67,8 +68,8 @@
 							<li>반일 대여 : 100,000원</li>
 							<li>전일 대여 : 200,000원</li>
 						</ul>
-					<p>※자세한 내용은 전화(1588-1599)로 문의 주세요.</p>
-				</div> -->
+					<p class="p_color">※자세한 내용은 전화(1588-1599)로 문의 주세요.</p>
+				</div> 
 			
 			</div>
 		</div><!--  본문 end-->  
