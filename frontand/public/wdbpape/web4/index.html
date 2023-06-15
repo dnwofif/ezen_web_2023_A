@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="index.css" rel="stylesheet">
+</head>
+<body>
+	<!-- 
+		- CSS선택자
+			*{}		: 모든 요소 공통
+			태그{}	: 동일한 태그간 공통	[X]
+			class{}	: 특정 요소들의 간의 공통 [복수형]
+				- input, div, ul, li
+			id{}	: 특정 요소 1개 [단일형] *페이지당 1개
+				- 레이아웃[헤더, 본문, 푸터, 사이드바]
+	 -->
+	<div id="wrap"><!-- 전체 레이아웃 -->
+		<!--  <div id="header">--><!-- 헤더 시작 -->
+		
+			<ul class="top_menu"><!-- 상단메뉴 시작 -->
+				<li><a href="#">LOGIN</a><span class="line">|</span></li>
+				<li><a href="#">JOIN</a><span class="line">|</span></li>
+				<li><a href="#">MYPAGE</a><span class="line">|</span></li>
+				<li><a href="#">ORDER</a><span class="line">|</span></li>
+				<li><a href="#">CART(0)</a><span class="line">|</span></li>
+				<li><a href="#">COMMUNITY</a><span class="line">|</span></li>
+				<li><a href="#"><img src="img/top_menu_icon.png"></a></li>
+			</ul><!-- 상단메뉴 끝 -->
+			
+			<div class="main_menu"><!-- 메인메뉴 시작 -->
+			
+				<ul><!-- 메뉴 -->
+					<li><a href="#"><img class="Logo" src="img/main_menu_Logo.png"></a></li>
+					<li><a href="#">BEST</a></li>
+					<li><a href="#"><span class="new"> NEW~20%</span></a></li>
+					<li class="drop_menu">
+						<a href="#">MADE</a>
+						<!-- 드랍 메뉴 -->
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+						<a href="#">BIG SIZE</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>				
+					</li>
+					<li class="drop_menu">
+						<a href="#">TOP</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>				
+					</li>
+					<li class="drop_menu">
+					<a href="#">SHIRTS</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+					<a href="#">PANTS</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+					<a href="#">OUTER</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+					<a href="#">SHOES&BAG</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+					<a href="#">ACC</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li><a href="#">당일배송</a></li>
+					<li class="drop_menu">
+					<a href="#">SALE</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+					<li class="drop_menu">
+					<a href="#">BRAND</a>
+						<ul class="sub_menu">
+							<li><a href="#"> 티 </a></li>
+							<li><a href="#"> 셔츠 </a></li>
+							<li><a href="#"> 바지 </a></li>
+							<li><a href="#"> 라우터 </a></li>
+						</ul>
+					</li>
+				</ul><!-- 메뉴 끝 -->
+				<span class="searchbox"><!-- 검색창 -->
+					<input type="text">
+					<img src="img/main_menu_find.png">
+				</span><!-- 검색창 끝 -->
+			</div><!-- 메인메뉴 끝 -->
+		<!--  </div>--><!-- 헤더 끝 -->
+		
+		<img id="main_img" src="img/main.jpg"/><!-- 대표이미지 -->	
+		
+		<div id="content"><!-- 본문 시작 -->
+			
+			<h3 class="title">HOT ITEM</h3>
+			<p class="comment">조군이 추천하는 핫 아이템입니다.</p>
+		
+			<!-- 핫 아이템이 출력되는 구역 -->
+			<div class="items"> <!-- 아이템 목록 시작 -->
+			
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods1.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods2.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods3.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods4.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods5.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods6.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods7.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				<div class="item"><!-- 아이템/제품 1개 -->
+					<img src="img/goods8.gif">
+					<div class="item_info"> <!-- 제품 정보 -->
+						<div class="color_review">	<!--  아이템 칼라 -->
+							<span class="color">
+								<span style="background-color: #89959D"></span>
+								<span style="background-color: #373D46"></span>
+							</span>
+							<span class="review">	<!-- 리뷰  -->
+								리뷰 : 447
+							</span>	<!-- 리뷰 끝  -->
+						</div>	<!--  아이템 칼라 끝 -->
+							<div class="item_name">
+								<p class="name">젠틀 컷어웨이 오픈카라 반팔티</p><!-- 제품명 -->
+								<p class="size">M~3XL(95~120)</p>	<!-- 사이즈 -->
+							</div>
+							<div class="item_price"><!-- 원가 / 가격 / 할인율 -->
+								<p class="price">37,800원</p>
+								<p class="disc_price">31,900원</p>
+								<p class="discount">15%</p>
+							</div>
+							<div class="item_icon"><!-- 아이콘들 -->
+								<img src="img/주문폭주.jpg">
+							</div>
+					</div>	<!-- 제품 정보 끝 -->
+				</div> <!-- 아이템/제품 1개 끝 -->
+				
+				
+			</div> <!-- 아이템 목록 끝 -->
+		
+		</div><!-- 본문 끝 -->
+		<div id="footer"><!-- 푸터 시작 -->
+			<div class="top_ft"><!-- 상위 푸터 시작 -->
+				<div class="content_ft"><!-- 상위 푸터 내용 -->
+					<div>
+						<h3>CS CENTER</h3>
+						<h3>카카오톡/네이버톡톡</h3>
+						<br/>
+						<p>MON-FRI : 10:00 ~ 17:00</p>
+						<p>LUNCH: 13:00 ~ 14:00</p>
+						<p>SAT, SUN, HOLIDAY OFF</p>
+						<p>대표번호 1599-3120 (유선상담불가)</p>
+					</div>
+					<div>
+						<h3>DELIVERY</h3>
+						<br/>
+						<p>반품주소:</p>
+						<p>경기도 부천시 길주로 347(중동) 5층 물류센터 대한통운 택배 이용</p>
+					</div>
+					<div>
+						<h3>BANK ACCOUNT</h3>
+						<p>예금주 : ㈜조군</p>
+						<br/>
+						<p>우리 1005-601-776813</p>
+						<p>농협 351-0286-8129-53</p>
+						<p>기업 114-153764-04-011</p>
+						<p>국민 594401-04-027446</p>
+						<p>신한 140-009-662523</p>
+					</div>
+					<div>
+						<h3>MENU</h3>
+						<p>홈</p>
+						<p>이용약관</p>
+						<p>개인정보처리방침</p>
+						<p>쇼핑몰 이용안내<p>
+					</div>
+				</div><!-- 상위 푸터 내용 끝 -->
+			</div><!-- 상위 푸터 끝 -->
+			
+			<div class="bottom_ft"><!-- 하위 푸터 -->
+				<p>㈜ 조군 | 대표 : 조안익 | 사업자 등록 번호 : 130-86-56658 | 통신판매업 신고: 제2011-경기부천-126호 | 개인정보 보호 책임자 : 조안나 [사업자정보확인]
+				<br/>E-mail : jogunshop@naver.com | 주소 : 경기도 부천시 원미구 중동 1086-2 6층 조군샵 도로명 : 경기도 부천시 길주로 347(중동) 6층 조군샵
+				<br/>ⓒ 2006. jogun All rights reserved.
+				</p>
+			
+			</div><!-- 하위 푸터 끝 -->
+		</div><!-- 푸터 끝 -->
+			<!--팝업창 아이콘  -->
+		<div id="popuo_wrap">
+			<ul>
+				<li class="popup_item">
+					<img src="img/check.png">
+					<span class="sub_item">최근본상품</span>
+				</li>
+				<li><img src="img/good.png"></li>
+				<li><img src="img/internet.png"></li>
+				<li><img src="img/kakao.png"></li>
+				<li><img src="img/recent.png"></li>
+				<li><img src="img/up.png"></li>
+				<li><img src="img/down.png"></li>
+			</ul>
+		</div>
+	</div><!-- 전체 레이아웃 end -->
+</body>
+</html>
