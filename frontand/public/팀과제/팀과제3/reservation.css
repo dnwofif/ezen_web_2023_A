@@ -57,12 +57,13 @@ a{color:black; text-decoration: none;}
 
 .body{
 	display: flex;
+	margin: 0 auto;
+	width:1200px;
 }
 
 .left_body{
-	margin-left: 800px;
-	text-align: center;
 	background-color: #FCF9EA;
+	text-align: center;
 }
 
 .fee_table th{
@@ -76,6 +77,7 @@ a{color:black; text-decoration: none;}
 
 .right_body{
 	margin-left: 20px;
+
 }
 
 .right_body h4{
@@ -102,7 +104,7 @@ a{color:black; text-decoration: none;}
 }
 
 .fee_table td{					/* 해당 class명의 td 요소 선택 */
-	padding: 10px;
+	padding: 5px;
 	text-align: left;
 	background: white;
 	vertical-align: top;
@@ -162,9 +164,7 @@ a{color:black; text-decoration: none;}
    display: inline-block;
 }
 
-.facebook {
-   background-image: url("img/facebook.png");
-}
+.facebook {  background-image: url("img/facebook.png");}
 
 .blog {
    background-image: url("img/blog.png");
@@ -173,4 +173,5 @@ a{color:black; text-decoration: none;}
 .insta {
    background-image: url("img/instagram.png");
 }
+
 
