@@ -65,8 +65,17 @@ a{color:black; text-decoration: none;}
 	background-color: #FCF9EA;
 }
 
+.fee_table th{
+	border-spacing: 0px;
+	height: 20px;
+}
+
+.body_button{
+	border: 0px;
+}
+
 .right_body{
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 .right_body h4{
