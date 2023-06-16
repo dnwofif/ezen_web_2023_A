@@ -3,7 +3,7 @@
 /* 공통 부분 */
 *{padding: 0px; margin: 0px; font-size: 12px;}
 /* a기본값 제거 */
-a{color: black; text-decoration: none;}
+a{ color: black; text-decoration: none;}
 /*글머리 */
 li{list-style-type: none;}
 
@@ -38,6 +38,10 @@ li{list-style-type: none;}
 	justify-content: space-between;
 }
 
+.content_ft_in  p{
+	font-size: 3px;
+	color: white;
+}
 
 
 .ft_content_icon{
@@ -62,4 +66,14 @@ li{list-style-type: none;}
 	display: flex; justify-content: space-between;
 	padding: 50px;
 	color : #999999;
+}
+
+.ft_bottom p{
+	font-size: 3px;
+}
+ 
+.ft_bottom_p_color{ 
+
+	/*background-color: black;*/
+	color: white;
 }
