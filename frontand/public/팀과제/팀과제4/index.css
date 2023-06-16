@@ -72,8 +72,8 @@ li{list-style-type: none;}
 	font-size: 3px;
 }
  
-.ft_bottom_p_color{ 
+.ft_bottom_p_color a{ 
 
-	/*background-color: black;*/
+	background-color: #363d47;
 	color: white;
 }
