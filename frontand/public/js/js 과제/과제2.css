@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 기본 여백 제거, 기본 폰트 */
+*{padding: 0px; margin: 0px; font-family: "맑은 고딕"}
+/* a 테그의 기본값 수정 */
+a{color : black; text-decoration: none;}
+
+#main{
+	width: 500px; 
+	margin: 0 auto;
+}
