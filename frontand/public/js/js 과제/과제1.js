@@ -20,7 +20,11 @@ let num3 = +prompt('정수 마지막을 입력하시오 : ');
 
 let max = num1 > num2 ? (num1 > num3 ? num1 : num3) : num2 > num3 ? num2 : num3
 let min = num1 < num2 ? (num1 < num3 ? num1 : num3) : num2 < num3 ? num2 : num3
-let mid = max != num1 && min != num1 ? num1 : max != num2 && min != num2 ? num2 : num3
+let mid = max != num1 && min != num1 
+? num1
+ : max != num2 && min != num2
+  ? 
+  num2 : num3
 
 alert(min + " " + mid + " " + max)
 
@@ -31,4 +35,3 @@ let p2 = +prompt('0, 1, 2 중 입력하시오.(가위가0,바위가1,보는2)');
 
 let answer = p1 == p2 ? '무승부' : (p1+1 == p2 || p2+2 == p1) ? '플레이어2 승리' : '플레이어1 승리'
 alert(answer)
-
