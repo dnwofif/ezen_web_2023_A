@@ -29,4 +29,22 @@
 요구사항4 : 기본적인 css 작업해주세요
    1. (필수) div 2개를 만들어서 [ 왼쪽은 회원가입 구역 ] [ 오른쪽은 로그인 구역 ]
    2. 그외 이쁘게 꾸며주세요.  
- * 
+ */
+
+ let id = []
+ let password = []
+ 
+ function 회원가입버튼(){
+	 let idclassInput = document.querySelector(".idclass")
+	 let Storage_id = idclassInput.value
+	 id.indexOf(Storage_id) != -1 ? alert('이미 존재하는 아이디입니다.[회원가입불가]') : id.push(Storage_id)
+	
+	 
+	 
+ }
+ 
+ function 로그인버튼(){
+	 let passwordclassInput = document.querySelector(".passwordclass")
+	 let Storage_password = passwordclassInput.value
+	 
+ }
