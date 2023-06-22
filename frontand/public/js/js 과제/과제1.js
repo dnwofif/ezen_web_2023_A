@@ -20,11 +20,8 @@ let num3 = +prompt('정수 마지막을 입력하시오 : ');
 
 let max = num1 > num2 ? (num1 > num3 ? num1 : num3) : num2 > num3 ? num2 : num3
 let min = num1 < num2 ? (num1 < num3 ? num1 : num3) : num2 < num3 ? num2 : num3
-let mid = max != num1 && min != num1 
-? num1
- : max != num2 && min != num2
-  ? 
-  num2 : num3
+let mid = max != num1 && min != num1 ? num1 : max != num2 && min != num2  ?   num2  : num3	
+//[조건]num1이 최대값이 아니거나 최솟값이 아니면 [참] num1이 중간값 [거짓이면 조건]num2 최대값이 아니거나 최솟값이 아니면 [참]num2이 중간값 [거짓]num이 중간값
 
 alert(min + " " + mid + " " + max)
 
