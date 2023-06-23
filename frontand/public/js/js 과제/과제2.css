@@ -36,7 +36,7 @@ input[type="password"] {
 
 input[type="button"] {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: blue;
   color: white;
   border: none;
   border-radius: 3px;
@@ -44,5 +44,5 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-  background-color: #45a049;
+  background-color: blue;
 }

@@ -31,20 +31,45 @@
    2. 그외 이쁘게 꾸며주세요.  
  */
 
- let id = []
+/* 회원가입 조건 
+	1.아이디 중복x
+	2.비밀번호 중복x
+	3.아이디 비밀번호가 같아야함	 */
+
+		// 로그인성공 팝업떠야되고(로그인버튼쪽에)
+		// 8자이상 넘어가면 팝업창떠야함
+ let id = []			
  let password = []
  
- function 회원가입버튼(){
-	 let idclassInput = document.querySelector(".idclass")
-	 let Storage_id = idclassInput.value
-	 id.indexOf(Storage_id) != -1 ? alert('이미 존재하는 아이디입니다.[회원가입불가]') : id.push(Storage_id)
+ function 회원가입버튼(){//회원가입버튼 함수시작
+	 //1. 아이디 객체 호출
+	let idclassInput = document.querySelector(".idclass")	// idclass 라는 클래스명을 가진 input 객체 호출
+	let Storage_id = idclassInput.value		// 입력받은 데이터 가져오기
+	
+	let passwordclassInput = document.querySelector(".passwordclass")	//password 라는 클래스명을 가진 input 객체 호출
+	let Storage_password = passwordclassInput.value		// 입력받은 데이터 가져오기
+	 
+	 //아이디 유효성 검사
+	id.indexOf(Storage_id) !=-1 ? alert('이미 존재하는 아이디입니다.[추가불가]') : id.push( Storage_id );password.push( Storage_password )
 	
 	 
 	 
- }
+ }//회원가입버튼 함수 끝
  
- function 로그인버튼(){
-	 let passwordclassInput = document.querySelector(".passwordclass")
-	 let Storage_password = passwordclassInput.value
-	 
- }
+ function 로그인버튼(){//로그인버튼 함수시작
+	let idclassInput = document.querySelector(".idclass")	// idclass 라는 클래스명을 가진 input 객체 호출
+	let Storage_id = idclassInput.value	// 입력받은 데이터 가져오기
+	
+	let passwordclassInput = document.querySelector(".passwordclass")//password 라는 클래스명을 가진 input 객체 호출
+	let Storage_password = passwordclassInput.value// 입력받은 데이터 가져오기
+	
+	if(idclassInput !=-1 && passwordclassInput !=-1){	//아이디와 비밀번호가 들어가있을 때
+		let index = id.indexOf(Storage_id)
+		if( index != -1 ){	//입력된 아이디 가 배열에 존재하는지 
+			if( password[index] == Storage_password ){ // 입력된 아이디의 인덱스의 위치가 곧 해당 아이디의 패스워드 인덱스 
+				alert('로그인성공')// 로그인 성공 
+			}
+			
+		}
+	}
+ }//로그인버튼 함수끝
