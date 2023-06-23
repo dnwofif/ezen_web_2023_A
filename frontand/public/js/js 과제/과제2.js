@@ -69,7 +69,8 @@
 			if( password[index] == Storage_password ){ // 입력된 아이디의 인덱스의 위치가 곧 해당 아이디의 패스워드 인덱스 
 				alert('로그인성공')// 로그인 성공 
 			}
-			
+		
 		}
+	else alert('로그인실패')
 	}
  }//로그인버튼 함수끝
