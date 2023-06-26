@@ -50,9 +50,17 @@
 	let Storage_password = passwordclassInput.value		// 입력받은 데이터 가져오기
 	 
 	 //아이디 유효성 검사
-	id.indexOf(Storage_id) !=-1 ? alert('이미 존재하는 아이디입니다.[추가불가]') : id.push( Storage_id );password.push( Storage_password )
-	
-	 
+	id.indexOf(Storage_id) !=-1 ? alert('이미 존재하는 아이디입니다.[추가불가]') : id.push( Storage_id );password.push( Storage_password );
+	if(id.value.length < 8) {alert('아이디를 8자 이상으로 입력해주세요')}
+		else if(password.value.length < 8){alert('비밀번호를 8자 이상으로 입력해주세요')}
+		else{
+			 alert('회원가입 완료')
+			 id.push(id.value);
+			 password.push(password.value);
+			 }
+
+	id.value = ''
+	password.value = '' 
 	 
  }//회원가입버튼 함수 끝
  
