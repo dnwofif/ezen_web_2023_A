@@ -51,16 +51,15 @@
 	 
 	 //아이디 유효성 검사
 	id.indexOf(Storage_id) !=-1 ? alert('이미 존재하는 아이디입니다.[추가불가]') : id.push( Storage_id );password.push( Storage_password );
-	if(id.value.length < 8) {alert('아이디를 8자 이상으로 입력해주세요')}
-		else if(password.value.length < 8){alert('비밀번호를 8자 이상으로 입력해주세요')}
+	if(Storage_id.length< 8) {alert('아이디를 8자 이상으로 입력해주세요')}
+		else if(Storage_password.length < 8){alert('비밀번호를 8자 이상으로 입력해주세요')}
 		else{
 			 alert('회원가입 완료')
-			 id.push(id.value);
-			 password.push(password.value);
-			 }
+			 id.push(Storage_id.value);
+			 password.push(Storage_password.value);
+			 }arguments
+			
 
-	id.value = ''
-	password.value = '' 
 	 
  }//회원가입버튼 함수 끝
  
@@ -81,4 +80,8 @@
 		}
 	else alert('로그인실패')
 	}
+	
+	//<input> 입력값 초기화
+	idclassInput.value = ''
+	passwordclassInput.value = ''
  }//로그인버튼 함수끝
