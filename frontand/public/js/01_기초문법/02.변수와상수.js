@@ -75,7 +75,7 @@ console.log(변수2+10)		// 변수 2+10 => 40
 
 //5. 입력받은값 변수에 저장
 let 입력 = prompt('숫자를 입력하세요')
-console.log(입력받은 숫자 : '+ 입력)
+console.log('입력받은 숫자 : '+ 입력)
 
 let 상태 = confirm('삭제하시겠습니까?')	// confirm() : 확인(true) or 취소
 console.log('버튼 상태 : ' + 상태)
