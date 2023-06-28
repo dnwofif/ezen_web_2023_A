@@ -23,18 +23,24 @@
 			틀리면 비밀번호 오류 문구 뜨게 만들기
 			(if문 사용하기)
  */		
-let 작성자 = [ ];
-let 비밀번호 = [ ];
-let 제목 = [ ];
-let 내용 = [ ];
-let 작성일 = [ ];
-let 조회수 = [ ];
+let 제목 = [ ]
+let 내용 = [ ]
+let 작성자 = [ ]
+let 비밀번호 = [ ]
 
-function 등록(){
-	let 
+
+function 등록(){ 
 	
 }
 
 function 삭제(){
+	
+}
+
+function 전체출력(){
+	
+}
+
+function 부분출력(){
 	
 }
