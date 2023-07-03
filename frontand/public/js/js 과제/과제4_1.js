@@ -25,7 +25,7 @@ function onWrite(){ console.log('onWrite()함수')
 		password : passwordValue,
 		title : titleValue,
 		content : contentValue,
-		date : ` ${now.getFullYear() }년 ${now.getMonth() }월 ${now.getDate() }일
+		date : ` ${now.getFullYear() }년 ${now.getMonth()+1 }월 ${now.getDate() }일
 				${now.getHours() }:${now.getMinutes() }:${now.getSeconds()}
 				`,
 		view : 0
