@@ -71,7 +71,7 @@
 /*카트내 제품 총가격*/
 .ctotal{color: red;}
 /*카트내 제품 출력 구역 */
-.cartottom{display: flex; overflow-x:scroll;}
+.cartbottom{display: flex; overflow-x:scroll;}
 /* 카트내 제품 1개*/
 .citem{
 	min-width: 20%;	/*한줄에 4개씩*/ 	/* max-with, min-width, max-height,min-heigh*/
