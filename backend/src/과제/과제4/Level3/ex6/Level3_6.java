@@ -12,7 +12,68 @@ public class Level3_6 {
 		Scanner scanner = new Scanner(System.in);
 		
 		/* 문제풀이 위치 */
-		
+		int set1=0, set2=0, set3=0, set4=0, set5=0, set6=0; 
+		while(true) {
+			System.out.println("1.예약하기 2.예약취소 3.예약현황");
+			System.out.println(">> 선택 : ");
+			int num = scanner.nextInt();
+			if(num==1){
+				System.out.println("예약할 좌석 선택 : ");
+				int num2 = scanner.nextInt();
+				if(num2 == 1) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set1=1;
+					}else System.out.println("예약실패");
+				}else if(num2 == 2) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set2=1;
+					}else System.out.println("예약실패");
+				}else if(num2 == 3) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set3=1;
+					}else System.out.println("예약실패");
+				}else if(num2 == 4) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set4=1;
+					}else System.out.println("예약실패");
+				}else if(num2 == 5) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set5=1;
+					}else System.out.println("예약실패");
+				}else if(num2 == 6) {
+					if(set1 == 0) {
+						System.out.println("예약성공"); set6=1;
+					}else System.out.println("예약실패");
+				}
+			}
+			else if(num==2) {
+				System.out.println("예약 취소할 좌석 선택 : ");
+				int num3 = scanner.nextInt();
+				if(num3 ==1) {set1 = 0;}
+				else if(num3 ==2) {set2 = 0;}
+				else if(num3 ==3) {set3 = 0;}
+				else if(num3 ==4) {set4 = 0;}
+				else if(num3 ==5) {set5 = 0;}
+				else if(num3 ==6) {set6 = 0;}
+				System.out.println("예약이 취소되었습니다.");
+			}
+			else if(num==3) {
+				if(set1 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				if(set2 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				if(set3 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				System.out.println();
+				if(set4 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				if(set5 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				if(set6 == 1) System.out.print("[ 예약 ] ");
+				else System.out.print("[ ] ");
+				System.out.println();
+			}
+		}
 		/* ----------- */
 
 	}

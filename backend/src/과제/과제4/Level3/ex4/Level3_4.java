@@ -11,7 +11,17 @@ public class Level3_4 {
 		Scanner scanner = new Scanner(System.in);
 	
 		/* 문제풀이 위치 */
-	
+		int sum = 0;
+		while(true) {
+			System.out.println("input : ");
+			int num = scanner.nextInt();
+			sum+=num;
+			if(sum<0) break;
+			for(int i=0; i<sum; i++) {
+				System.out.print("■");
+			}
+			System.out.println();
+		}
 		/* ----------- */
 
 	}

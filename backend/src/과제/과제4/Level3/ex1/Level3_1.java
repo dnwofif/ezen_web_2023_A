@@ -25,7 +25,7 @@ public class Level3_1 {
 		
 		/* 문제풀이 위치 */
 		
-		
+		for(int i=1; i<=10; i++) {System.out.println("안녕하세요"+i);}
 		
 		/* ----------- */
 
