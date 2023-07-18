@@ -94,6 +94,38 @@ public class ex1_반복문 { // class s
 			run = false;
 		}
 	}
+	
+	//[p.135]
+		//1. for문에 식별이름 정의 :  for 이름 : for() {}
+		
+		//2. break;
+			// : 가장 가까운 반복문 탈출, continue for 이름
+		//2. break for이름;
+			// :  해당 for 탈출
+		//3.  continue;
+			// : 가장 가까운 반복문 증감식/조건식으로 이동;
+		//3.  continue for 이름;
+			// : 해당 for 반복문 증감식/조건식으로 이동;
+		// 공통점 : break; continue;
+	
+	 대문자for : for(char upper = 'A'; upper <='Z'; upper++) {
+		System.out.print(upper+"  ");
+		for(char lower = 'a'; lower <='z'; lower++) {
+			System.out.print("\t"+lower);
+			// * 가장 가까운 반복문 탈출
+			if(lower == 'g') break 대문자for;
+		}//for 2 end
+		System.out.println();
+	}// for 1 end
+	
+	//[p.137]
+	 숫자for: for(int j=1; j<=10; j++) {
+		if(j%2 != 0) {	//홀수 찾기 == 1
+			continue 숫자for;//for으로 이동 //아래에 있는 코드는 실행x //홀수 출력x
+		}//if end
+		System.out.println(j+"  ");
+	}
+	
 	}//main e
 }// class e
 /*
