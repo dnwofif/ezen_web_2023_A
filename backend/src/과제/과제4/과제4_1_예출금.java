@@ -7,16 +7,66 @@ public class 과제4_1_예출금 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		int balance = 0; String account = "123-1234"; short password = 1234;
+		int balance = 0; String account = "123-1234"; short password = 1234;//1명의 임의 계좌
 		
 		while( true ) { // 무한루프 [ 종료조건 : 4 입력시 break; ] 
 			System.out.println("\n\n--------------------");
 			System.out.println("1.예금 2.출금 3.잔액 4.종료 : ");
 			System.out.println("--------------------");
 			System.out.print(">> 선택 : ");
-			int ch = scanner.nextInt();
+			int ch = scanner.nextInt();//입력받기
 			
 			/* 문제풀이 위치 */
+			
+			// step 1 : 입력받은 메뉴 번호에 따른 서로 다른 코드/행동 실행
+			//if (ch == 1) {}
+			//if (ch == 2) {}
+			//if (ch == 3) {}
+			//if (ch == 4) {}
+			///////////////vs///////////////
+			// step 2 : 경우의 수 true 기능 구형
+			if (ch == 1) {
+				//1. 계좌번호를 입력받아
+				System.out.println("계좌번호 : "); String inputAccount = scanner.next();
+				//2. 일치하면 / 일치하지 않으면 => 경우의 수 2개 => if
+					// 같다/다르다.		equals()
+				if (inputAccount.equals(account)) {
+					// 입력받은 계좌번호와 기존의 계좌번호가 일치하면
+					//3. 예금액을 입력받아
+					int inputBalance = scanner.nextInt();
+					//4. 예금액 변수에 누적 더 해준후 [예금성공]출력
+					balance += inputBalance;		System.out.println("[예금성공]");
+					
+				}else {//일치하지 않으면
+					System.out.println("[예금실패]계좌번호 불일치");
+					}
+				}
+			else if (ch == 2) {
+				System.out.println("계좌번호 : ");		String inputAccount = scanner.next();
+				if(inputAccount.equals(account)) {
+					System.out.println("비밀번호 : ");		String inputPassword = scanner.next();
+					//1. 비밀번호 일치 경우의 수
+					if(inputPassword.equals(account)) {	// 입력받은 비밀번호 와 기존의 비밀번호와 일치하면
+						
+						//2. 출금액 받고
+						System.out.println("출금액 : ");		int inputBalance = scanner.nextInt();
+						
+						//3. 예금액보다 출금액이 더 크면
+						if( inputBalance > balance) {//입력받은 출금액이 현재 예금된 금액보다 크면
+							System.out.println("[출금실패]잔액 부족");
+						}else {
+							balance -= inputBalance; System.out.println("출금 성공");
+						}
+					}else {
+						System.out.println("[출금실패]비밀번호 불일치");
+					}
+				}else {
+					System.out.println("[출금실패]계좌번호 불일치");
+				}
+			}
+			else if (ch == 3) { System.out.println("예금액 : "+balance);}
+			else if (ch == 4) { System.out.println("안녕히 가세요"); break;}
+			
 			
 			
 			/* ----------- */
