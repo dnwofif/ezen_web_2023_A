@@ -97,7 +97,7 @@ public class ex2_확인문제9_p199 {//class s
  		무한루프 종료해서 출력그만 !! break;
  
  //.nextLine() 사용시 주의할점
-  * nextLine 사용시 달ㄴ next~~() 앞뒤로 존재 했을때 하나로 인식 [오류처럼 보일수 있다.]
+  * nextLine 사용시 다른 next~~() 앞뒤로 존재 했을때 하나로 인식 [오류처럼 보일수 있다.]
   	1. 해결방안
   		Integer.parseInt(scanner.nextLine());
   	2. 해결방안
@@ -143,4 +143,6 @@ public class ex2_확인문제9_p199 {//class s
 		System.out.println("프로그램 종료");
  
  
- */
+ */  
+ 
+ 
