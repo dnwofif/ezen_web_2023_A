@@ -30,15 +30,15 @@ public class MemberSys {
 				System.out.print("이름 : "); 		String inputName = sc.next();
 				System.out.print("전화번호 : "); 	String inputPhone = sc.next();
 				System.out.print("나이 : "); 		int inputAge = sc.nextInt();
-				// 2. 5가지를 하나로 묶음 = 문자열vs객체
-					//1. 기본생성자[과제8] vs 정의한생성자[과제9]
-				Member member = new Member(inputId, inputPw, inputName, inputPhone, inputAge);
-				// 3. 여러개의 객체를 저장하기 위해 배열에 저장 
-					// *비어있는인덱스=기본값인덱스 를 찾아서(처음부터끝까지확인) 해당 인덱스에 객체 저장 
+				// 2. 
+					// 1. 기본생성자[과제8] vs 정의한생성자[과제9] 
+					Member member = new Member(inputId, inputPw, inputName, inputPhone, inputAge);
+				// 3. 
 				for( int i = 0 ; i<memberList.length; i++ ) {
 					// 만약에 i번째 인덱스에 null 이면 해당 i번재 인덱스에 입력받아서 만든 객체 대입 
 					if( memberList[i] == null ) { memberList[i] = member; break; }
-				} // for end 
+				} // for end
+				
 			} // if end 
 			else if( ch == 2 ) {
 				System.out.println("--------- 로그인 ---------");
@@ -96,6 +96,20 @@ public class MemberSys {
  				2. 입력받은 값과 배열내 동일한 값 찾기
  					- 만약에 동일한 값 있으면 로그인 성공 
  					- 아니면 실패 
+ 					
+ 					
+ 					
+ 					
+ 					// 1안 
+					Member member = new Member(inputId, inputPw, inputName, inputPhone, inputAge);
+					// 2안
+					Member member2 = new Member(inputId, inputPw, inputName, inputPhone);
+					if( inputAge >= 19 ) member2.age = inputAge;
+					// 3안
+					Member member3 = new Member(inputId, inputPw, inputName);
+					member3.phone = inputPhone;	member3.age = inputAge;
+					// 4안 2개	5안 1개
+					
  					
  				
  		
