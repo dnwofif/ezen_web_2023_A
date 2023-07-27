@@ -3,6 +3,7 @@ package java1.day11.Ex5디자인패턴2.view;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import java1.day11.Ex5디자인패턴2.controller.MemberController;
 import 과제.과제10.Member;
 import 과제.과제10.MemberSys;
 
@@ -34,12 +35,17 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 	} // f end 
 	
 	void singupPage() {
+		// 입/출력 
 		System.out.println("--------- 회원가입 ---------");
 		System.out.print("아이디 : "); 	String id = sc.next();
 		System.out.print("비밀번호 : ");	String pw = sc.next();
 		System.out.print("이름 : ");		String name = sc.next();
 		System.out.print("전화번호 : ");	String phone = sc.next();
 		System.out.print("나이 :");		int age = sc.nextInt();
+		// ---> 컨트롤러/서빙 에게 전달 // 컨트롤 클래스내 메소드 호출 
+		boolean result=  MemberController.getInstance().singupLogic( id , pw , name , phone , age );
+		if( result ) System.out.println("안내)회원가입성공");
+		else System.out.println("안내)회원가입실패");
 	}
 	void loginPage() {}
 	void findIdPage() {}
