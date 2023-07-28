@@ -46,7 +46,30 @@ public class part2_2 {
 				if(사이다재고>0) {사이다바구니++;	사이다재고--; System.out.println("안내)사이다 담았습니다.");
 				}else {System.out.println("안내)사이다 재고가 없습니다.[관리자에게 문의]");}
 			}else if(ch==4) {
-			
+				System.out.println("----------------------------------");
+				System.out.printf("%3s %2s %5s\n","제품명","수량","가격");
+				if(콜라바구니>0) System.out.printf("%3s %2s %5s\n","콜라",콜라바구니,콜라바구니*콜라가격);
+				if(환타바구니>0) System.out.printf("%3s %2s %5s\n","환타",환타바구니,환타바구니*환타가격);
+				if(사이다바구니>0) System.out.printf("%3s %2s %5s\n","사이다",사이다바구니,사이다바구니*사이다가격);
+				
+				int 총가격 = 콜라바구니*콜라가격 + 환타바구니*환타가격 + 사이다바구니*사이다가격;
+				System.out.println("총가격 : "+총가격);
+				System.out.println("----------------------------------");
+				System.out.println("1.결제 2.취소 : ");	int ch2 = scanner.nextInt();
+				
+				if(ch2==1) {
+					System.out.println("안내금액 투어 : ");		int pay = scanner.nextInt();
+					if(pay>=총가격) {
+						System.out.println("잔액 : "+(pay-총가격));
+						콜라바구니 =0; 사이다바구니=0; 환타바구니=0;
+						System.out.println("주문번호 : 1");
+					}else {
+						콜라재고+=콜라바구니; 콜라바구니=0; 환타재고+=환타바구니;환타바구니=0; 사이다재고+=사이다바구니;사이다바구니=0;
+					}
+				}
+				재고관리 = 콜라재고+","+콜라바구니+","+콜라가격+"\n"
+						+환타재고+","+환타바구니+","+환타가격+"\n"
+						+사이다재고+","+사이다바구니+","+사이다가격+"\n";
 			}
 			
 			
