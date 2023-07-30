@@ -47,6 +47,7 @@ public class part4_1 {
 			System.out.print("가격 : ");			int price = scanner.nextInt();
 												int basket = 0;
 			
+												
 			String outStr = name+","+stock+","+price+","+basket+"\n";
 			fileOutputStream.write(outStr.getBytes());
 			System.out.println("안내) 제품 등록이 되었습니다. ");
