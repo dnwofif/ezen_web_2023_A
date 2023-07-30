@@ -12,6 +12,7 @@ public class part4_1 {
 	public static void main(String[] args) throws IOException{
 	
 	while(true) {
+	
 		
 		Scanner scanner = new Scanner(System.in);
 		String filePath = "./src/복습/part4/part4재고파일.txt";
