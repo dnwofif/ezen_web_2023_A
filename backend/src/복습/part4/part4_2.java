@@ -40,6 +40,46 @@ public static void main(String[] args) throws IOException {
 						System.out.println((i+1)+":"+name+"["+price+"]");
 					}
 				}
+			System.out.println("\n>>>>>> 선택 :");	int ch=scanner.nextInt();
+				if(ch==1) {
+					System.out.println("제품명 : ");		String name = scanner.next();
+					System.out.println("초기재고 : ");		int stock = scanner.nextInt();
+					System.out.println("가격 : ");		int price = scanner.nextInt();
+														int basket = 0;
+					String outStr = name+","+stock+","+price+","+basket+"\n";
+					fileOutputStream.write(outStr.getBytes());
+					System.out.println("안내) 제품 등록이 되었습니다.");
+				}
+				else if(ch>0 && ch<=재고관리.length) {
+					String name = 재고관리[ch-1].split(",")[0];
+					int stock = Integer.parseInt(재고관리[ch-1].split(",")[1]);
+					int price = Integer.parseInt(재고관리[ch-1].split(",")[2]);
+					int basket = Integer.parseInt(재고관리[ch-1].split(",")[3]);
+					
+					if(stock>0) {stock--; basket++; System.out.println(name+"제품을 담았습니다.");}
+					else {System.out.println(name+"제품의 재고가 부족합니다. ");}
+					재고관리[ch-1] = name+","+stock+","+price+","+basket;
+					String outStr="";
+					for(int i1=0; i1<재고관리.length; i1++) {
+						outStr += 재고관리[i1].split(",")[0]+","+재고관리[i1].split(",")[1]+","+
+								재고관리[i1].split(",")[2]+","+재고관리[i1].split(",")[3]+"\n";
+					FileOutputStream fileOutputStream2 = new FileOutputStream(filePath);
+					fileOutputStream2.write(outStr.getBytes());
+					}
+				}
+				else if(ch==0) {
+					System.out.printf("%10s %10s %10s \n","제품명","수량","가격");
+					for( int i1=0; i1<재고관리.length; i1++) {
+						int basket = Integer.parseInt(재고관리[i1].split(",")[3]);
+						int price = Integer.parseInt(재고관리[i1].split(",")[2]);
+						String name = 재고관리[i1].split(",")[0];
+						
+						if(basket>0) {
+							System.out.printf("%10s %10s %10s \n",name, basket, basket*price);
+						}
+					}
+				}
+			
 			}
 		
 		}//while e
