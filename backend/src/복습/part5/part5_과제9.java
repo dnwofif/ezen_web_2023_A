@@ -23,7 +23,7 @@ public class part5_과제9 {
 				System.out.println("전화번호 : ");		String inputPhone = sc.next();
 				System.out.println("나이 : ");			int inputAge = sc.nextInt();
 				
-				Member member = Member(inputId,inputPw,inputName,inputPhone,inputAge);
+				Member member = new Member(inputId,inputPw,inputName,inputPhone,inputAge);
 				
 				for(int i=0; i<memberList.length; i++) {
 					if(memberList[i] == null ) { memberList[i] = member; break;}
