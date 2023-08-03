@@ -15,5 +15,6 @@ public class Child extends Parent {
 	}
 	public void method3() {
 		System.out.println("자식클래스메소드3");
+
 	}
 }

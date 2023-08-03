@@ -13,7 +13,6 @@ public class VeryImportrantPerson extends Member {
 		// TODO Auto-generated method stub
 		super.stop2();
 	}
-	
-	
+		
 			
 }

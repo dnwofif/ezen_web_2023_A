@@ -29,5 +29,6 @@ public class Ex2_실행 {
 		child3.method1();
 		child3.method2();
 		child3.method3();
+
 	}
 }
