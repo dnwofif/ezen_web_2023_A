@@ -10,7 +10,7 @@ public class MainPage {
 	public static MainPage getInstance() { return mainPage; }
 	private MainPage() {}
 	
-	// 0.입력객체 
+	// 0. 입력객체 
 	private Scanner sc = new Scanner(System.in);
 	// 1. 메인메뉴 
 	public void mainView() {
@@ -29,11 +29,27 @@ public class MainPage {
 	} // f end 
 	// 2. 회원가입 화면
 	public void signupView() {
-		MemberController.getInstance().signupLogic();
+		//1. 출력에 따른 입력값 받는다.
+		System.out.println("===== 회원가입 페이지 ===== ");
+		System.out.print("아이디 > "); 			String id = sc.next();
+		System.out.print("비밀번호 > "); 			String pw = sc.next();
+		System.out.print("이름 > "); 			String name = sc.next();
+		System.out.print("전화번호[-포함] > "); 	String phone = sc.next();
+		//2.입력받은 값을 컨트롤에게 전달
+		boolean result = MemberController.getInstance()
+					.signupLogic(id,pw,name,phone);
+		//3. 결과에 출력
+		if(result) {System.out.println("안내) 회원가입이 성공했습니다. 감사합니다");}
+		else { System.out.println("경고) 회원가입시 실패. 관리자에게 문의");}
 	}
 	// 3. 로그인 화면
 	public void loginView() {
-		MemberController.getInstance().loginLogic();
+		System.out.println("===== 로그인 페이지 ===== ");
+		System.out.print("아이디 > "); 			String id = sc.next();
+		System.out.print("비밀번호 > "); 			String pw = sc.next();
+		boolean result =  MemberController.getInstance().loginLogic(id,pw);
+		if(result) {System.out.println("안내) 로그인 성공");}
+		else {System.out.println("경고) 로그인 실패");}
 	}
 	
 }
