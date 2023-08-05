@@ -22,7 +22,6 @@ public class part6_4 {
 			if( ch == 3 ) { part6_4.아이디찾기();}
 			if( ch == 4 ) { part6_4.비밀번호찾기();  회원가입();}
 
-		
 		}
 	}
 	static void 회원가입() {
