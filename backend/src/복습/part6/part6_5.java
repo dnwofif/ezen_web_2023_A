@@ -22,6 +22,7 @@ public class part6_5 {
 			if(ch==3) {part6_5.아이디찾기();}
 			if(ch==4) {part6_5.비밀번호찾기(); 회원가입();}
 			
+			
 		}//while e
 	}// main e
 	static void 회원가입() { 
