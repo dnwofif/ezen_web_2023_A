@@ -1,7 +1,10 @@
 package 과제.과제11.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import java1.day13.Ex2.controller.BoardController;
+import java1.day13.Ex2.model.dto.BoardDto;
 import 과제.과제11.controller.MemberController;
 import 과제.과제11.model.dto.MemberDto;
 
@@ -83,12 +86,41 @@ public class LoginPage {
 	
 	// 9. boardWrite : 게시물쓰기 페이지 
 	public void boardWrite() {
-		
+		sc.nextLine();
+		System.out.println(" ----- post write ----- ");
+		System.out.print("제목 > "); 		String title = sc.nextLine();
+		System.out.print("내용 > "); 		String content = sc.nextLine();
+		boolean result = 
+			BoardController.getInstance().boardWrite(title,content);
 	}
 	// 10. boardPrint : 모든 게시물 출력 
-	public void boardPrint() {}
+	public void boardPrint() {
+		System.out.println(" ----- post LIST -----");
+				//1. 여러개의 게시물을 요청해서 반환된 결과 저장"
+		ArrayList<BoardDto> result = 
+				BoardController.getInstance().boardPrint();
+		//2. 출력
+		System.out.printf("%-3s %-4s %-15s %-10s %-10s %s","no","view","date","mid","title");
+		for(int i=0; i<result.size(); i++) {
+			BoardDto boardDto = result.get(i);	//i번째의 객체를 호출
+			System.out.printf("%-3s %-4s %-19s %-10s %s \n",
+						dto.getBno(), dto.getBview(), dto.getBdate(), dto.getMno(), dto.getBtitle());
+			
+		}
+	}
 	// 11. boardView : 개별 게시물 출력 
-	public void boardView() {}
+	public void boardView() {
+		System.out.println(" ----- post VIEW -----");
+		//1. 보고자하는 게시물의 게시물번호를 입력받기[ 식별번호 ]
+		System.out.println("게시물번호 : "); 		int bno=sc.nextInt();
+		//2. 
+		BoardDto result = BoardController.getInstance().boardView(bno);
+		//3.
+		System.out.println("bno : %3s view : %3s mid : %10s date : %19s \n");
+		 				result.getBno() , result.getBview() ,
+		 				result.getMid() , result.getBdate() ,
+		 				
+	}
 	// 12. boardUpdate : 게시물 수정 
 	public void boardUpdate() {}
 	// 13. boardDelete : 게시물 삭제
