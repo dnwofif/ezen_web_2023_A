@@ -16,7 +16,7 @@ public class BoardDto {
 	
 	//2. 생성자 [ 1.빈생성자 2.풀생성자 ]
 	public BoardDto() {}
-	//
+	// 글 등록시 사용되는 생성자
 	public BoardDto(int bno, String btitle, String bcontent, String bdate, int bview, int mno, String mid) {
 		super();
 		this.bno = bno;
@@ -27,7 +27,25 @@ public class BoardDto {
 		this.mno = mno;
 		this.mid = mid;
 	}
+	
+	
 
+
+	public BoardDto(String btitle, String bcontent, int mno) {
+		super();
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.mno = mno;
+	}
+	//글수정시 사용되는 생성자
+	public BoardDto(int bno, String btitle, String bcontent) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+	}
+	
+	
 	
 	public int getBno() {
 		return bno;
@@ -84,7 +102,11 @@ public class BoardDto {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
-
+	@Override
+	public String toString() {
+		return "BoardDto [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bdate=" + bdate
+				+ ", bview=" + bview + ", mno=" + mno + ", mid=" + mid + "]";
+	}
 	
 	
 }
