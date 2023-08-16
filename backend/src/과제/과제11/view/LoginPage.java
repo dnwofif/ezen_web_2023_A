@@ -129,11 +129,12 @@ public class LoginPage {
 		System.out.printf("content : %s \n " , result.getBcontent() );
 		
 		// 4. 추가메뉴 
-		System.out.print("1.뒤로가기 2.수정 3.삭제 선택> "); 
+		System.out.print("1.뒤로가기 2.수정 3.삭제 4.쪽지보내기 선택> "); 
 		int ch = sc.nextInt();
 		if( ch == 1 ) {}
 		if( ch == 2 ) { boardUpdate( bno , result.getMno() ); } // 보고 있는 게시물 번호와 작성자회원번호
 		if( ch == 3 ) { boardDelete( bno , result.getMno() ); }
+		if( ch == 4 ) {	boardMessage( );}
 	}
 	// 12. boardUpdate : 게시물 수정 [ 게시물번호 식별해서 제목이랑 내용만 수정 -> 로그인된 사람과 작성자가 일치할경우 가능하도록  ]
 	public void boardUpdate( int bno , int mno ) {
@@ -154,7 +155,13 @@ public class LoginPage {
 		else if( result == 2 ) { System.out.println("안내] 글 삭제 실패 : 관리자 오류 ");}
 		else if( result == 3 ) { System.err.println("경고] 본인 글만 삭제 가능 합니다. ");}
 	}
-	
+	// 14. boardMessage : 쪽지보내기
+	public void boardMessage() {
+		System.out.println(" ----- post Message ----- ");
+		sc.nextLine();
+		System.out.print("내용 > ");			String content = sc.nextLine();
+		
+	}
 }
 
 /*
