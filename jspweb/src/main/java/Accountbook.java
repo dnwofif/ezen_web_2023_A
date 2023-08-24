@@ -37,16 +37,29 @@ public class Accountbook extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<AccountbookDto> result = AccountbookDao.getInstance().vread();
 		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonArray = objectMapper.writeValueAsString(result);
+		System.out.println(jsonArray);
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(jsonArray);
 	}
 
 	//3. 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int vno= Integer.parseInt(request.getParameter("vno"));		System.out.println("vno : " + vno);
+		String vcontent = request.getParameter("vcontent");			System.out.println( "vcontent : " + vcontent );
+		
+		boolean result = AccountbookDao.getInstance().vupdate(vno,vcontent);
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(result);
 		
 	}
 
 	//4. 삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		int vno= Integer.parseInt(request.getParameter("vno"));	 		System.out.println("vno : "+vno);
+		boolean result = AccountbookDao.getInstance().vdelete(vno);
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(result);
 	}
 
 }
