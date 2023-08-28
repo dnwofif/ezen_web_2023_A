@@ -9,41 +9,33 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.MemberDao;
 
-
-@WebServlet("/memberFindController")
-public class memberFindController extends HttpServlet {
+/**
+ * Servlet implementation class MemberFindController
+ */
+@WebServlet("/MemberFindController")
+public class MemberFindController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-    public memberFindController() {
+ 
+    public MemberFindController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
+    // 하나의 메소드의 여러개 ajax 통신할때. type전송( 숫자 1:아이디중복검사 2.이메일중복검사 vs 필드명  mid : 아이디중복검사 , memail : 이메일중복검사 )  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mid = request.getParameter("mid");
-		boolean result = MemberDao.getInstance().findId(mid);
+		// 1. 요청한다.
+		String type = request.getParameter("type");
+		String data = request.getParameter("data");
+		// 2. 객체화/유효성검사
+		// 3. DAO 요청 결과 
+		boolean result = MemberDao.getInstance().findIdOrEmail( type , data);
+		// 4. 결과 응답한다. 
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
-		
-		
-		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-	
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
 	}
 
 }
