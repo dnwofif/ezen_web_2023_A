@@ -14,13 +14,13 @@ import model.dto.MemberDto;
  * Servlet implementation class MemberInfoController
  */
 @WebServlet("/MemberInfoController")
-public class memberinfoController extends HttpServlet {
+public class MemberinfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public memberinfoController() {
+    public MemberinfoController() {
         super();
         // TODO Auto-generated constructor stub
     }
