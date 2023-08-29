@@ -25,15 +25,22 @@
 		<br/>
 		
 		이메일 : <input onkeyup="emailcheck()" class="memail" type="text" /> 
-		<button class="authReqBtn" onclick="authReq()" disabled type="button">인증요청</button> <br/>
+		<!-- 이메일 인증요청 버튼 -> 유효성검사 통과시 사용가능 -->
+		<button disabled class="authReqBtn" onclick="authReq()"  type="button">인증요청</button> <br/>
+		
 		<div class="authbox">
 			<!-- 인증요청 버튼 클릭시 보이는 구역  -->
 		</div>
 		
 		<span class="emailcheckbox"></span> <br/>
 		
-		프로필 : 	<input class="mimg" type="file" /> <br/>
+		프로필 : 	<input onchange="preimg( this )" class="mimg" type="file" /> <br/>
+			<!-- <태그명 이벤크명="함수명( this )" />  -->
+		<img class="preimg" alt="" src=""> <!-- 등록 사진을 미리보기 할 사진 태그  -->
+		
 		<button onclick="signup()" type="button">회원가입</button>
+		
+		
 	</div>
 	
 	<script src="../js/signup.js" type="text/javascript"> </script>
