@@ -10,6 +10,7 @@ public class Ex3_예제 {
 		
 		//1. compareTo 메소드 [ Comparable 인터페이스 로부터 구현] 이용한 정렬 기준 만들기
 		TreeSet<Person> treeSet = new TreeSet<>();
+			// TerrSet<> 제네릭에는 Comparable 로 부터 구현된 클래스의 객체만 저장 가능
 		
 		//2. 무작위 person 객체 대입
 		treeSet.add(new Person("홍길동",45));
