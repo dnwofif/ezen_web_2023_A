@@ -150,19 +150,32 @@ function emailcheck(){
 
 // 4. 인증요청 버튼을 눌렀을때.
 function authReq(){ console.log('인증요청');
-	// 1. 'authbox' div 호출 
-	let authbox = document.querySelector('.authbox')
 	
-	// 2. auth html 구성 
-	let html = `<span class="timebox">02:00</span>
-				<input class="ecode" type="text" /> 
-				<button onclick="auth()" type="button">인증</button> `
-	// 3. auth html 대입 
-	authbox.innerHTML = html;
-	// 4. 타이머 실행
-	authcode = '1234';	// [ 테스트용 ] 인증 코드 '1234' 테스트용
-	timer = 10;
-	settimer();
+	// -- 인증요청시 서블릿통신[ 인증코드 생성, 이메일전송 ]
+	$.ajax({
+	      url : "/jspweb/AuthSendEmailController",
+	      method : "get",
+	      data : { memail : document.querySelector('.memail').value} ,
+	      success : r => {
+			  // 1. 'authbox' div 호출 
+				let authbox = document.querySelector('.authbox')
+				
+				// 2. auth html 구성 
+				let html = `<span class="timebox">02:00</span>
+							<input class="ecode" type="text" /> 
+							<button onclick="auth()" type="button">인증</button> `
+				// 3. auth html 대입 
+				authbox.innerHTML = html;
+				// 4. 타이머 실행
+				authcode = r;	// [ 테스트용 ] 인증 코드 '1234' 테스트용 [ Controller 전달받음 ]
+				timer = 120;
+				settimer();
+			  } ,
+	      error : e => { console.log('e');}
+   })
+	
+	
+	
 } // f end 
 
 //4번,5번,6번 함수에서 공통적으로 사용할 변수[지역변수]
