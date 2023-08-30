@@ -23,7 +23,16 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	// 2. 로그인 
-	
+	public boolean login( String mid , String mpwd ) {
+		try {
+			String sql ="select * from member where mid =  ? and mpwd = ? ";
+			ps = conn.prepareStatement(sql);
+			ps.setString( 1 , mid ); ps.setString( 2 , mpwd );
+			rs = ps.executeQuery();
+			if( rs.next() ) return true;
+		}catch (Exception e) { System.out.println(e);}
+		return false;
+	}
 	// 3. 아이디찾기
 	
 	// 4. 비밀번호찾기 
@@ -31,7 +40,7 @@ public class MemberDao extends Dao {
 	// 5. 내정보 호출 
 	
 	// 6. 아이디/이메일 중복검사 [ 인수 : 검사할아이디 / 반환 : true(중복있어) , false(중복없어) 
-		// - type : 필드명 / data : 필드에서 찾을 값 
+		// - type(mid,memail) : 필드명 / data(입력받은mid,memail) : 필드에서 찾을 값 
 	public boolean findIdOrEmail( String type , String data ) {
 		try {
 			String sql = "select * from member where "+type+" = ?";

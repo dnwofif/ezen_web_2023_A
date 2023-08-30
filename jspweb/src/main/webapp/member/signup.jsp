@@ -37,9 +37,9 @@
 			
 			프로필 : 	<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*"/> <br/>
 				<!-- <태그명 이벤트명="함수명( this )" /> : 함수에 이벤트실행한 태그객체 매개변수로 전달  -->
-			<img class="preimg" alt="" src="img/default.webp" width="100px" > <!-- 등록 사진을 미리보기 할 사진 태그  -->
+			<img class="preimg" alt="" src="img/default.webp" > <!-- 등록 사진을 미리보기 할 사진 태그  -->
 			<br/>
-			<button onclick="signup()" type="button">회원가입</button>
+			<button class="signupbtn" onclick="signup()" type="button">회원가입</button>
 		</form>
 	</div>
 	
