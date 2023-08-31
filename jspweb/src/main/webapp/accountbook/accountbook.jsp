@@ -9,6 +9,9 @@
 	<!-- css import -->
 	<link href="accountbook.css" rel="stylesheet" />
 </head>
+
+	<%@include file = "../header.jsp" %>
+
 	<div class="visitwrap"><!-- 전체구역 시작 -->
 		<div class="visit_Top"><!-- 쓰기구역 시작 -->
 			<div class="visit_Inputs">
