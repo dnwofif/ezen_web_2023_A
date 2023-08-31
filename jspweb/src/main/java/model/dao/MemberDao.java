@@ -42,20 +42,19 @@ public class MemberDao extends Dao {
 	// 5. 내정보 호출 
 	public MemberDto info( String mid ) {
 		try {
-			String sql="select mno, mid, memail, mimg from member where mid = ?";
+			String sql ="select mno , mid , memail , mimg from member where mid = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, mid);
+			ps.setString( 1 , mid );
 			rs = ps.executeQuery();
-			if(rs.next()) {
-				MemberDto memberDto = new MemberDto(
-						LocalDateTime.now().toString(),
-						// LocalDateTime.now().toString() : 현재 날짜/시간 문자열 반환 함수
+			if( rs.next() ) {
+				MemberDto memberDto = new MemberDto( 
+						LocalDateTime.now().toString() , 
+						// LocalDateTime.now().toString() : 현재 날짜/시간 문자열 반환 함수 
 						rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4));
 				return memberDto;
-						
 			}
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) { System.out.println(e ); }
 		return null;
 	}
 	
@@ -74,8 +73,15 @@ public class MemberDao extends Dao {
 	}
 	// 7. 회원수정
 	
-	// 8. 회원탈퇴
-	
-	
-	
+	// 8. 회원탈퇴 [ 삭제할회원번호 , 검증할패스워드 ]
+	public boolean mdelete( int mno , String mpwd ) {
+		try {
+			String sql ="delete from member where mno = ? and mpwd = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt( 1 , mno); ps.setString(2, mpwd);
+			int count = ps.executeUpdate();
+			if( count == 1 ) return true; // 삭제성공 => 회원탈퇴
+		}catch (Exception e) {System.out.println(e);}
+		return false; // 회원번호 또는 입력받은 패스워드 일치하지 않거나
+	}
 }
