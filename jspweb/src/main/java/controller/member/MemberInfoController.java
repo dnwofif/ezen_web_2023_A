@@ -134,6 +134,34 @@ public class MemberInfoController extends HttpServlet {
 	// 3. 회원수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// multipart/form-data 전송 요청 // cos.jar[ MultipartRequest 클래스]
+		
+		//-------------------- 파일 업로드 ------------------------------------//
+		MultipartRequest multi = new MultipartRequest(
+				request,
+				request.getServletContext().getRealPath("/member/img"),
+				1024*1024*10,
+				"UTF-8",
+				new DefaultFileRenamePolicy());
+		
+		//-------------------- DB 업데이트 ------------------------------------//
+		// * form 전송일때는 input의 데이터 호출시
+			// 일반 input : multi.getParameter("input name");
+			// 첨부 input : multi.getFilesystemName("input name");
+		String mimg = multi.getFilesystemName("mimg");
+		// Dao [ 로그인된 회원번호, 수정할 값]
+			Object object = request.getSession().getAttribute("loginDto");
+			MemberDto memberDto = (MemberDto)object;
+			int loginMno = memberDto.getMno();
+		// *만약에 수정할 첨부파일 이미지 없으면
+		if( mimg == null ) {	//기존 이미지 그대로 사용
+			mimg = memberDto.getMimg();	// 세션에 있던 이미지 그대로 대입	
+		}
+		
+		boolean result = MemberDao.getInstance().mupdate(loginMno, mimg);
+		response.setContentType("application/json; charset=utf-8");
+		response.getWriter().print(  result );
+				
 	}
 	// 4. 회원삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
