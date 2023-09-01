@@ -20,7 +20,7 @@ public class BoardDao extends Dao {
 	
 	//5. 게시물 삭제
 	
-	//6. 게시물
+	//6. 조회수 증가
 	
 	
 }

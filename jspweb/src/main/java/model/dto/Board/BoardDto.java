@@ -31,6 +31,15 @@ public class BoardDto {
 		this.mid = mid;
 		this.bname = bname;
 	}
+	// * 글 등록시 사용되는 생성자
+	public BoardDto(String btitle, String bcontent, String bfile, int mno, int bcno) {
+		super();
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.mno = mno;
+		this.bcno = bcno;
+	}
 	
     //메소드
 	public int getBno() {
