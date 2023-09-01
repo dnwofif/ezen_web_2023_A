@@ -17,5 +17,7 @@
 	</div>
 	<script src="../js/board/list.js" type="text/javascript"></script>
 	
+	
+	
 </body>
 </html>

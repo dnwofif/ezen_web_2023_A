@@ -25,7 +25,10 @@ function getMemberInfo(){
 			// - 구성된 html 대입
 			submenu.innerHTML = html;
 		} ,error : e => {} 
+		
+		
 	})
+	
 } // f end 
 // 2. 로그아웃 함수 [ 서블릿에 세션을 삭제.. 그리고 로그아웃 성공시 메인페이지로 이동 ]
 function logout(){

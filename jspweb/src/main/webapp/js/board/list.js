@@ -16,7 +16,7 @@ function getList(){
 		url : "/jspweb/BoardInfoController" , 
 		method : "get" ,
 		data : {} , 
-		success : r => {console.log(r);
+		success : r => {console.log(r);   
 			
 			//1. 출력할 위치
 			let boardTable = document.querySelector('.boardTable');
@@ -30,7 +30,7 @@ function getList(){
 					html += `<tr>
 								<th>${b.bno}</th>
 								<th>${b.bname}</th>
-								<th>${b.btitle}</th> 
+								<th>${b.btitle}</th>  
 								<th>${b.mid}</th>
 								<th>${b.bview}</th>
 								<th>${b.bdate}</th>
