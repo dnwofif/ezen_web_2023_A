@@ -30,7 +30,7 @@ function getList(){
 					html += `<tr>
 								<th>${b.bno}</th>
 								<th>${b.bname}</th>
-								<th>${b.btitle}</th>
+								<th>${b.btitle}</th> 
 								<th>${b.mid}</th>
 								<th>${b.bview}</th>
 								<th>${b.bdate}</th>
