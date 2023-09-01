@@ -14,6 +14,7 @@ public class BoardDto {
     // - 게시물에 추가적으로 표시할 필드들
     private String mid;			//작성자 회원아이디
     private String bname;		//카테고리명
+    private String mimg;		//작성자 프로필
     
     //생성자	[1. 빈생성자 2. 풀생성자 3.(추후에)작업하면서 필요한 생성자들]
     public BoardDto() {}
@@ -40,10 +41,35 @@ public class BoardDto {
 		this.mno = mno;
 		this.bcno = bcno;
 	}
+	// 전체 글 조회시 사용되는 생성자
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int mno, int bcno,
+			String mid, String bname, String mimg) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bdate = bdate;
+		this.bview = bview;
+		this.mno = mno;
+		this.bcno = bcno;
+		this.mid = mid;
+		this.bname = bname;
+		this.mimg = mimg;
+	}
+	
 	
     //메소드
+	
 	public int getBno() {
 		return bno;
+	}
+	
+	public String getMimg() {
+		return mimg;
+	}
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
