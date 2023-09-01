@@ -12,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.dao.Board.BoardDao;
 import model.dto.MemberDto;
+import model.dto.Board.BoardDto;
 
 /**
  * Servlet implementation class BoardInfoController
@@ -53,13 +54,12 @@ public class BoardInfoController extends HttpServlet {
 		int mno = ( (MemberDto)request.getSession().getAttribute("loginDto") ).getMno();
 		int bcno = Integer.parseInt( multi.getParameter("bcno") );
 		// 2. 유효성검사/객체화 
-		model.dto.Board.BoardDto boardDto = new model.dto.Board.BoardDto(btitle, bcontent, bfile, mno, bcno);	System.out.println( boardDto );
-		
+		BoardDto boardDto = new BoardDto(btitle, bcontent, bfile, mno, bcno);	System.out.println( boardDto );
 		// 3. Dao 처리 
-		
+		boolean result = BoardDao.getInstance().bwrite(boardDto);
 		// 4. (Dao 결과) 응답 
-		
-			
+		response.setContentType("application/json; charset=UTF-8"); 
+		response.getWriter().print(result);
 	}
 	// 3. 수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
