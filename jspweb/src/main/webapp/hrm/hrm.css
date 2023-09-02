@@ -1,1 +1,139 @@
-@charset "UTF-8";
+/* Reset some default styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Style the web container */
+.webcontainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form */
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.intitle {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+.himg {
+    margin-top: 10px;
+}
+
+.preimg {
+    max-width: 200px;
+    height: auto;
+    margin-top: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+/* Style the select input */
+#hrank {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+/* Style the date input */
+.hdate {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+/* Style the date checkbox */
+.datecheckbox {
+    margin-top: 10px;
+    color: #888;
+}
+
+/* Style the signup button with the specified color */
+.signupbtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #139AB8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.signupbtn:hover {
+    background-color: #0E7F9C;
+}
+
+/* Style the employee list */
+.employeelist {
+    margin-top: 30px;
+}
+
+.listwrap {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.listheader {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Add spacing to list items */
+.listitem {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Style the 직원명 and 전화번호 input fields */
+.hname, .hphone {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Add some spacing to the input elements */
+.hname {
+    margin-top: 20px;
+}
+
+/* Style the phone checkbox */
+.phonecheckbox {
+    margin-top: 10px;
+    color: #888;
+}
