@@ -115,7 +115,7 @@ function hread() {
 					html += `<div class="hlistbox"><!-- 방문록 1개의 표시구역 -->
 								<div class="hlist_top">
 									<div> ${ r[i].hno +" | " } </div>
-									<img class="box_himg" src="/jspweb/과제/hrm/img/${r[i].himg}">
+									<img class="box_himg" src="/jspweb/hrm/img/${r[i].himg}">
 									<div> ${ " | "+ r[i].hname +" | " } </div>
 									<div> ${ r[i].hphone +" | " } </div>
 									<div> ${ r[i].hrank +" | "} </div>
