@@ -22,7 +22,7 @@ function getBoard(){
 			
 			// 2. HTML 구성 
 			let html = `부가정보 : <div> 
-									${ r.bcname } , 
+									${ r.bname } , 
 									${ r.bview } , 
 									${ r.bdate } 
 								 </div>
