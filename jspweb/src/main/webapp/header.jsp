@@ -21,8 +21,8 @@
 		<ul class="mainmenu"> 	<!-- 본메뉴 -->
 			<li> <a href="/jspweb/visitlog/visitlog.jsp">방문록</a> </li>
 			<li> <a href="/jspweb/board/list.jsp">게시판</a> </li>
-			<li> <a href="#">기능2</a> </li>
-			<li> <a href="#">기능3</a> </li>
+			<li> <a href="/jspweb/datago/datago.jsp">공공데이터</a> </li>
+			<li> <a href="/jspweb/chatting/chatting.jsp">채팅</a> </li>
 			<li> <a href="/jspweb/accountbook/accountbook.jsp">(과1)가계부</a> </li>
 			<li> <a href="#">(과2)열람실</a> </li>
 			<li> <a href="/jspweb/hrm/hrm.jsp">(과3)인사관리</a> </li>
@@ -34,6 +34,7 @@
 	
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 	<script  src="/jspweb/js/header.js"></script>
 </body>
 </html>
