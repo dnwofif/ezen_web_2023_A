@@ -1,1 +1,63 @@
 @charset "UTF-8";
+/* 제목 스타일 */
+ .title {
+     font-size: 24px;
+     text-align: center; /* 가운데 정렬 */
+     margin: 20px 0;
+ }
+
+ /* 라이브러리 랩 스타일 */
+ .librarywrap {
+     max-width: 480px;
+     margin: 0 auto; /* 가운데 정렬 */
+     padding: 20px;
+     border: 1px solid #ccc;
+     border-radius: 10px;
+ }
+
+ /* 버튼 랩 스타일 */
+ .button_wrap {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ }
+ 
+ .buttonarea {
+ 	display: flex;
+ }
+
+ /* 버튼 스타일 */
+ .buttonarea button {
+     width: 45px;
+     height: 45px;
+     margin: 5px;
+     font-size: 18px;
+     border: 2px solid #1399B7;
+     border-radius: 50%;
+     background-color: #1399B7;
+     color: #fff;
+     cursor: pointer;
+ }
+
+ /* 입력 필드 스타일 */
+ .inputarea input {
+     width: 100%;
+     margin: 10px 0;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     font-size: 16px;
+ }
+
+ /* 하단 버튼 스타일 */
+ .bottom_button button {
+     width: 100%;
+     padding: 10px;
+     font-size: 18px;
+     background-color: #1399B7;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-top: 10px;
+ }
