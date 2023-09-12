@@ -1,146 +1,132 @@
+console.log("JS접속완료");
 
-let lno = ``; // 버튼값 저장 전역변수
-let lphoneFromDB = ``; // db에서 특정 lno 값과 같은 레코드의 phone 값
-
-
-buttonprintn();
-//버튼 출력 함수
-function buttonprintn() {
-	let buttonarea = document.querySelector('.buttonarea');
-	
-	let html=``;
-	html +=`
-			<button data-lno="1" onclick="getValue(this)" type="button">1</button>
-            <button data-lno="2" onclick="getValue(this)" type="button">2</button>
-            <button data-lno="3" onclick="getValue(this)" type="button">3</button>
-            <button data-lno="4" onclick="getValue(this)" type="button">4</button>
-            <button data-lno="5" onclick="getValue(this)" type="button">5</button>
-            <button data-lno="6" onclick="getValue(this)" type="button">6</button>
-            <button data-lno="7" onclick="getValue(this)" type="button">7</button>
-            <button data-lno="8" onclick="getValue(this)" type="button">8</button>
-			`;
-	
-	buttonarea.innerHTML = html;
-	
-	
+function chNum( num ){
+   nowNum = num;
+   document.querySelector('.ch_num').innerHTML = num;
 }
 
-// 버튼값 불러오는 함수
-function getValue(button) {
-    lno = button.textContent;
-    alert("누른 좌석번호: " + lno);
-}
+/* 버튼 출력 함수 */
+//read();
+function read(){
 
-//입실
-function admission() {
-	 if (!lno) {
-        alert('안내] 좌석번호를 먼저 선택해주세요.');
-        return;
-    }
-    
-    let nameInput = document.querySelector('.name');
-    let phoneInput = document.querySelector('.phone');
-   
-    let name = nameInput.value;
-       let phone = phoneInput.value;
-   
-    if (name == "" || phone == "" || lno == "") {
-        alert('안내] 모든 정보를 입력해주세요.');
-        return; // 입력되지 않은 정보가 하나라도 있으면 입실 불가능
-    }
-     // 이미 사용 중인 좌석 확인
-    if (lphoneFromDB == phone) {
-        alert('안내] 이미 사용 중인 좌석입니다. 다른 좌석을 이용해주세요.');
-        return;
-    }
-    
-   
-    let info = {
-        lno: lno, // 이미 선언된 전역 변수 lno 사용
-        name: nameInput.value,
-        phone: phoneInput.value,
-    };
+   $.ajax({
+      url : "/jspweb/Library" ,
+      method : "get" ,
+      data : "",
+      success : r => {
+         console.log('통신 성공');
+         let html = ``;
+         let readButton =  document.querySelector('.button_box');
+         for(let i = 0; i < r.length; i++){
+            if(r[i].lisuse == true)
+               document.querySelector(`.button${i+1}`).style.backgroundColor = 'orange';
+            else
+               document.querySelector(`.button${i+1}`).style.backgroundColor = 'white';
 
-    console.log(info);
+         }
+      },
+      error : r => {
+         console.log('통신 실패')
 
-     $.ajax({
-         url : "/jspweb/library", 
-         method : "post",      
-         data : info ,
-         success : function f(r){console.log( r );
-            if( r == "true"){
-				 alert('입실 성공');
-       			  		
-        		let button = document.querySelector(`button[data-lno="${lno}"]`);
-                if (button) {
-                    button.style.backgroundColor = "green"; // 변경할 색상
-                    
-                lno = 0;			// 좌석 및 입력값 초기화
-                nameInput.value = ""; 
-        		phoneInput.value = "";
-        		}
-			}
-            else{alert('안내] 이미 사용중인 좌석입니다. 다른 좌석을 이용해주세요.')}
-         
-         } ,       
-         error : function f( r ){}       
-      });
-}
-
-
-
-// 4. 퇴실
-function ldelete() {
-	 if (!lno) {
-        alert('안내] 좌석번호를 먼저 선택해주세요.');
-        return;
-    }
-	console.log("ldelete() open: " + "입력한 버튼값" + lno);
-    let phoneNumber = prompt("전화번호를 입력하세요:");
-    if (phoneNumber == null || phoneNumber.trim() == "") {
-        alert("전화번호를 입력해주세요.");
-        return;
-    }
-    
-    $.ajax({
-        url: "/jspweb/library",
-        method: "get",
-        data: { lno:lno },
-        success: function (result) {
-            console.log(result);
-            lphoneFromDB = result[0].lphone
-            console.log(phoneNumber)
-			console.log(lphoneFromDB)
-            if (phoneNumber == lphoneFromDB) {
-                console.log("ldelete() open: " + lno);
-
-                $.ajax({
-                    url: "/jspweb/library",
-                    method: "delete",
-                    data: { lno:lno },
-                    success: function (result) {
-                        console.log("doDelete통신성공");
-                        if (result == true) {
-                            alert("성공적으로 퇴실처리 되었습니다.");  
-                            let button = document.querySelector(`button[data-lno="${lno}"]`);
-               			 	if (button) {
-                   			 button.style.backgroundColor = "#1299B8"; // 변경할 색상 
-                   			 lno=0;		// 좌석 및 입력값 초기화
-                   			 }  
-                        } else {
-                            alert("입력하신 전화번호가 올바르지 않습니다.");
-                        }
-                    },
-                    error: function (result) {
-                        console.log(result);
-                    },
-                });
-            } else {
-                alert("입력하신 전화번호가 올바르지 않습니다.");
-            }
-        },
-        error: function (result) {
-            console.log(result);
-        },
+      }
     });
 }
+
+function setSeatno(seatno) {
+
+	document.querySelector('.getIn').value = seatno;
+	document.querySelector('.getOut').value = seatno;
+
+	document.querySelector('.ch_num').innerHTML = seatno;
+	console.log("seatno" + seatno);
+
+	console.log("('.getIn').value  :" + document.querySelector('.getIn').value);
+
+}
+
+
+
+
+
+//입실정보등록
+function checkIn(){
+	let seatnoInput = document.querySelector('.ch_num');
+	let nameInput = document.querySelector('.name');
+	let phonenumberInput = document.querySelector('.phonenumber');
+
+	console.log("seatno  :  " + seatnoInput.innerText);
+	console.log("name  :  " + nameInput.value);
+	console.log("phonenumberInput  :  " + phonenumberInput.value);
+	//객체화
+	let info = {
+		type:"C",
+		name: nameInput.value,
+		phonenumber:phonenumberInput.value,
+		seatno:seatnoInput.innerText
+	}
+	console.log("info >> "+info);
+	$.ajax({
+		url :"/jspweb/LibraryController",
+		method : "POST",
+		data : info,
+		dataType: "text",
+		success: r => {
+			console.log('통신성공' + r)
+			alert("입실정보가 정상등록되었습니다.")
+			//초기화
+			nameInput.value='';
+			phonenumberInput.value ='';
+			seatno:seatnoInput.innerText='';
+			// read()
+		;},
+		error : r => {
+
+			console.log('통신실패 : '+ r );
+		}
+	});
+}
+
+//퇴실정보등록 (입실정보수정)
+function checkOut() {
+	let seatnoInput = document.querySelector('.ch_num');
+	let nameInput = document.querySelector('.name');
+	let phonenumberInput = document.querySelector('.phonenumber');
+
+	console.log("22 seatno  :  " + seatnoInput.innerText);
+	console.log("222 name  :  " + nameInput.value);
+	console.log("2222 phonenumberInput  :  " + phonenumberInput.value);
+
+	let info = {
+			type:"U",
+			name: nameInput.value,
+			phonenumber:phonenumberInput.value,
+			seatno:seatnoInput.innerText
+		}
+		console.log("info >> "+JSON.stringify(info));
+
+		$.ajax({
+			url :"/jspweb/LibraryController",
+			method : "POST",
+			data : info, //보낼 데이터,
+			dataType: "text",
+			success: r => {
+				console.log('통신성공' + r)
+				alert("퇴실실정보가 정상등록되었습니다.")
+				//초기화
+				nameInput.value='';
+				phonenumberInput.value ='';
+				seatno:seatnoInput.innerText='';
+				// read()
+			;},
+			error : r => {
+
+				console.log('통신실패 : '+ r );
+			}
+		});
+}
+
+//좌석정보출력
+function showSeat(){
+
+
+}	
