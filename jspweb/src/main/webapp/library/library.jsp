@@ -3,42 +3,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<!-- css import -->
-	<link href="library.css" rel="stylesheet">
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <!-- css import -->
+   <link href="library.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="../header.jsp" %> <!-- 헤더 import -->
-	
-	  <div class="wrap">   
-      <h3>도서관 열람실 좌석 현황</h3>
-      <div class="seat_table">
-         <span class="button_box">   
-               <button class="button" onclick="setSeatno(1)" type="button"> 1 </button>
-               <button class="button" onclick="setSeatno(2)" type="button"> 2 </button>
-               <button class="button" onclick="setSeatno(3)" type="button"> 3 </button>
-               <button class="button" onclick="setSeatno(4)" type="button"> 4 </button><br/>                              
-               <button class="button" onclick="setSeatno(5)" type="button"> 5 </button>
-               <button class="button" onclick="setSeatno(6)" type="button"> 6 </button>
-               <button class="button" onclick="setSeatno(7)" type="button"> 7 </button>
-               <button class="button" onclick="setSeatno(8)" type="button"> 8 </button>   
-         </span>
-         <span class="input_box">
-            <input class="name" type="text" placeholder="이름"/>
-            <input class="phonenumber" type="text" placeholder="전화번호"/>
-         </span>
-      </div>
-      <div class="botton_table">   
-         <div>현재 선택된 좌석 번호 : <span class="ch_num"></span></div>
-         <div class="room_button">
-            <button class="getIn" onclick = "checkIn()" type="button">입실</button>
-            <button class="getOut"  onclick = "checkOut()"  type="button">퇴실</button>
+
+   <div class="wrap"> <!-- 전체구역 -->
+      <h3> 도서관 열람실 입실/퇴실 </h3>
+      <div class="contentbox"> <!-- 화면구역 -->
+         
+         <div class="seatarea"> <!-- 좌석구역 -->
+            <div><h4>열람실 좌석</h4></div>
+            <div class="seatBox">
+            
+            </div>
          </div>
+         
+         <div class="inputBox"> <!-- 입력 구역 -->
+            <input class="nameInput" type="text" placeholder="이름">
+            <input class="phoneInput" type="text" placeholder="전화번호 - 포함 ">
+         </div>
+         
       </div>
-      
-   </div>
+      <div class="buttonBox"> <!-- 버튼구역 -->
+         <button onclick="enterseat()" class="btnEnter" type="button"> 입실 </button>
+         <button onclick="outseat()" class="btnOut" type="button">  퇴실 </button>
+      </div>
+   </div> <!-- 전체구역 end-->
 
 
+   <!-- 최신 JQUERY 불러오기 : AJAX 메소드 사용하기 위해 : JS가 외부로부터 통신하기 위해 -->
+   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+   <!-- js import -->
+   <script src="library.js" type="text/javascript"></script>
 </body>
 </html>

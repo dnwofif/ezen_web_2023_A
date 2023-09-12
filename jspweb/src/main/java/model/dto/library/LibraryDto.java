@@ -2,120 +2,90 @@ package model.dto.library;
 
 public class LibraryDto {
 	
-	// 필드
-	private int lno ;
-	private String lname ;
-	private String lphone;
-	private int lseatno;
-	private String lindate;
-	private String loutdate;
-	private boolean lisuse;
+	//필드
+	// 1. 유저 필드
+	private int uno;
+	private String uname;
+	private String uphone;
+	// 2. 시트 필드
+	private int sno;
+	private int sstate;
 
 	
+	//생성자
+	public LibraryDto () {}
+
+
+	public LibraryDto(String uname, String uphone) {
+		super();
+		this.uname = uname;
+		this.uphone = uphone;
+	}
+
+
+	public LibraryDto(int sno, int sstate) {
+		super();
+		this.sno = sno;
+		this.sstate = sstate;
+	}
+
+
 	
-	// 생성자
-	public LibraryDto() { 	}
-
-	public LibraryDto(int lno, String lname, String lphone, int lseatno, String lindate, String loutdate,
-			boolean lisuse) {
-		super();
-		this.lno = lno;
-		this.lname = lname;
-		this.lphone = lphone;
-		this.lseatno = lseatno;
-		this.lindate = lindate;
-		this.loutdate = loutdate;
-		this.lisuse = lisuse;
+	//메소드
+	public int getUno() {
+		return uno;
 	}
 
-		// 입실 정보 입력시 
-	public LibraryDto(String lname, String lphone, int lseatno, boolean lisuse) {
-		super();
-		this.lname = lname;
-		this.lphone = lphone;
-		this.lseatno = lseatno;
-		this.lisuse = lisuse;
-	}
-	
-		//퇴실 정보 입력
-	public LibraryDto(String lname, String lphone, int lseatno, String loutdate, boolean lisuse) {
-		super();
-		this.lname = lname;
-		this.lphone = lphone;
-		this.lseatno = lseatno;
-		this.loutdate = loutdate;
-		this.lisuse = lisuse;
+
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 
-	// 좌석정보 
-	public LibraryDto(int lseatno, boolean lisuse) {
-	   super();
-	   this.lseatno = lseatno;
-	   this.lisuse = lisuse;
+
+	public String getUname() {
+		return uname;
 	}
 
-	// 메소드
-	public int getLno() {
-		return lno;
+
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 
-	public void setLno(int lno) {
-		this.lno = lno;
+
+	public String getUphone() {
+		return uphone;
 	}
 
-	public String getLname() {
-		return lname;
+
+	public void setUphone(String uphone) {
+		this.uphone = uphone;
 	}
 
-	public void setLname(String lname) {
-		this.lname = lname;
+
+	public int getSno() {
+		return sno;
 	}
 
-	public String getLphone() {
-		return lphone;
+
+	public void setSno(int sno) {
+		this.sno = sno;
 	}
 
-	public void setLphone(String lphone) {
-		this.lphone = lphone;
+
+	public int getState() {
+		return sstate;
 	}
 
-	public int getLseatno() {
-		return lseatno;
+
+	public void setState(int sstate) {
+		this.sstate = sstate;
 	}
 
-	public void setLseatno(int lseatno) {
-		this.lseatno = lseatno;
-	}
-
-	public String getLindate() {
-		return lindate;
-	}
-
-	public void setLindate(String lindate) {
-		this.lindate = lindate;
-	}
-
-	public String getLoutdate() {
-		return loutdate;
-	}
-
-	public void setLoutdate(String loutdate) {
-		this.loutdate = loutdate;
-	}
-
-	public boolean isLisuse() {
-		return lisuse;
-	}
-
-	public void setLisuse(boolean lisuse) {
-		this.lisuse = lisuse;
-	}
 
 	@Override
 	public String toString() {
-		return "LibraryDto [lno=" + lno + ", lname=" + lname + ", lphone=" + lphone + ", lseatno=" + lseatno
-				+ ", lindate=" + lindate + ", loutdate=" + loutdate + ", lisuse=" + lisuse + "]";
+		return "LibraryDto [uno=" + uno + ", uname=" + uname + ", uphone=" + uphone + ", sno=" + sno + ", state="
+				+ sstate + "]";
 	}
-
-}
 	
+}	
