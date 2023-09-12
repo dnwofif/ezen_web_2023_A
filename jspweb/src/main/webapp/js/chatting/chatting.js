@@ -6,12 +6,20 @@ if( loginState == false ){ alert('회원전용 페이지입니다.'); location.h
 // 2. JS 클라이언트[유저] 소켓 만들기 
 console.log( '채팅방에 입장한 아이디 : ' + loginMid );
 //let clientSocket = new WebSocket(`ws://localhost:80/jspweb/serversokcet/${loginMid}`);
-let clientSocket = new WebSocket(`ws://192.168.17.96:80/jspweb/serversokcet/${loginMid}`);
+let clientSocket = new WebSocket(`ws://192.168.17.123:80/jspweb/serversokcet/${loginMid}`);
 	// - 클라이언트소켓이 생성되었을때 자동으로 서버소켓에 접속 ----> 서버소켓의 @OnOpen 으로 이동
 	// - 서버소켓URL에 매개변수 전달하기 [- 주로 식별자 전달 ] 서버소켓URL/데이터1/데이터2/데이터3
 	// --- 메소드 4가지 메소드 자동으로 실행 
 		// 1. (자동실행) 클라이언트소켓이 정상적으로 서버소켓 접속했을때
-	clientSocket.onopen = e => { console.log('서버와 접속이 성공'); 	} ;
+	clientSocket.onopen = e => { console.log('서버와 접속이 성공');
+			// 1-2 : 만약에 접속을 성공하면 알림메시지 전송
+			let msg = {
+				type : "alarm",
+				content : `${loginMid}님이 입장했습니다.`}
+			//clientSocket.send(msg);	
+			// 문제발생 : 해당 메시지를 받는 JAVA는 JSON타입 몰라 그래서 문자열 타입으로 전송
+			clientSocket.send(JSON.stringify(msg));
+	 	} ;
 		// 2. (자동실행) 클라이언트소켓이 서버소켓과 연결에서 오류가 발생했을때.
 	clientSocket.onerror = e => { console.log('서버와 오류발생:'+e ); };
 		// 3. (자동실행) 클라이언트소켓이 서버소켓과 연결이 끊겼을때.
@@ -42,7 +50,12 @@ function onSend(){
 function onMsg( e ){
 	console.log( e ); // e : 메시지 받았을때 발생한 이벤트 정보가 들어있는 객체
 	console.log( e.data ); // .data 속성에 전달받은 메시지 내용 
+	// 1. 전달받은 내용물을 JSON타입으로 형변환
 	let msgBox = JSON.parse( e.data );	console.log( msgBox );
+	msgBox.msg = JSON.parse( msgBox.msg);
+	// 2. MSG속성내 content \n -> <br> 치환후 결과를 content속성에 대입
+		// - replace
+	msgBox.msg.content.replace(/\n/g,'<br>');
 		// JSON.parse( ) 		: 문자열타입의 JSON형식을 JSON타입으로 변환 
 		// JSON.stringify( ) 	: JSON타입 을 문자열 타입 (JSON형식 유지)으로 변환 
 		console.log( msgBox.msg ); // java,js console내 출력시 줄바꿈 \n 맞음.. html에서의 줄바꿈 <br>
@@ -61,8 +74,13 @@ function onMsg( e ){
 	let chatcont = document.querySelector('.chatcont')
 	// 2. 무엇을 
 	let html = ``;
+		// 만약에 알림 메시지이면
+		if( msgBox.msg.type == 'alarm'){
+			html = `${typeHTML(msgBox.msg)}`;
+		}
+		// 만약에 일반 메시지이면
 		// 2-2 만약에 내가 보냈으면. [ 보낸사람아이디와 로그인된사람의 아이디와 같으면 ]
-		if( msgBox.frommid == loginMid ){
+		else if( msgBox.frommid == loginMid ){
 				html = `<div class="rcont"> 
 							<div class="subcont">
 								<div class="date"> ${ msgBox.date } </div>
@@ -119,7 +137,7 @@ function getEmo(){
 // 7. 클릭한 이모티콘 서버로 보내기.
 function onEmoSend( i ){
 	// 1. msg 구성 
-	let msg = { type : 'emo' , content : i  };
+	let msg = { type : 'emo' , content : i+""  };	//i+"" 하는 이유가 replace는 문자열만 가능
 		// type : msg[메시지] , emo[이모티콘] , img[사진]
 		// content : 내용물 
 		
@@ -141,6 +159,11 @@ function typeHTML( msg ){
 	else if( msg.type == 'emo' ){
 		html += `<img src="/jspweb/img/imoji/emo${msg.content}.gif" />`;
 	}
+	// 3. 만약에 알림 타입 일때는 <div> 반환
+	else if(msg.type == 'alarm'){
+		html += `<div class="alarm"> ${msg.content} </div>`;
+	}
+	
 	return html;
 	
 }
