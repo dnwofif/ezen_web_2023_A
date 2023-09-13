@@ -1,25 +1,27 @@
 package model.dto.product;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ProductDto {
-	
 	int pcno;
 	String pcname;
-	int pno;		 
-    String pname;
-    String pcontent;	
-    int pprice;	
-    int pstate;
-    String pdate;
-    String plat;
-    String plng;
-    int mno;
-    Map< Integer, String > imgList = new HashMap<>();
-	String mid;
+	int pno	;
+	String pname;
+	String pcontent; 
+	int pprice;
+	int pstate;
+	String pdate;
+	String plat;
+	String plng;	
+	int mno;
+	
+	//  키:이미지번호 / 값: 이미지이름
+	Map< Integer , String > imgList = new HashMap<>(); // 제품별 여러개 이미지 
+	String mid; // * 제품 등록한 회원 아이디 
 	
 	public ProductDto() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	public ProductDto(int pcno, String pcname, int pno, String pname, String pcontent, int pprice, int pstate,
@@ -39,10 +41,26 @@ public class ProductDto {
 		this.imgList = imgList;
 		this.mid = mid;
 	}
+	
+	// 1. 제품 등록시 생성자 
+	public ProductDto(int pcno, String pname, String pcontent, int pprice, String plat, String plng, int mno,
+			Map<Integer, String> imgList) {
+		super();
+		this.pcno = pcno;
+		this.pname = pname;
+		this.pcontent = pcontent;
+		this.pprice = pprice;
+		this.plat = plat;
+		this.plng = plng;
+		this.mno = mno;
+		this.imgList = imgList;
+	}
 
 	public int getPcno() {
 		return pcno;
 	}
+
+
 
 	public void setPcno(int pcno) {
 		this.pcno = pcno;
@@ -152,6 +170,4 @@ public class ProductDto {
 	}
 	
 	
-	 
-	 
 }
