@@ -21,13 +21,13 @@
 	  </div>
 	  <div class="carousel-inner">
 	    <div class="carousel-item active" data-bs-interval="10000" >
-	      <img src="/jspweb/img/main1.webp" class="d-block w-100" alt="..."  >
+	      <img src="/jspweb/img/main1.jpg" class="d-block w-100" alt="..."  >
 	    </div>
 	    <div class="carousel-item" data-bs-interval="10000" >
-	      <img src="/jspweb/img/main2.webp" class="d-block w-100" alt="...">
+	      <img src="/jspweb/img/main2.jpg" class="d-block w-100" alt="...">
 	    </div>
 	    <div class="carousel-item" data-bs-interval="10000" >
-	      <img src="/jspweb/img/main3.webp" class="d-block w-100" alt="...">
+	      <img src="/jspweb/img/main3.jpg" class="d-block w-100" alt="...">
 	    </div>
 	  </div>
 	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
