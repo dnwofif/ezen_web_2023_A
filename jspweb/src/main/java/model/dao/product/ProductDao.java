@@ -34,7 +34,7 @@ public class ProductDao extends Dao {
 			int count = ps.executeUpdate();	// 제품 등록 
 			
 			rs = ps.getGeneratedKeys(); // 제품 등록시 생성된 식별키[pk->pno] 반환해서 resultset[ps]에 대입
-			if( rs.next() ) {	// resultset  null ---next()--> 결과레코드1 --next()--> 결과레코드2 
+			rs.next();	// resultset  null ---next()--> 결과레코드1 --next()--> 결과레코드2 
 							// 반환된 결과레코드로 1번 이동 [ 하나의 제품 식별키 필요 ]
 				if( count == 1 ) { // 만약에 제품등록 1개 등록했으면 
 					// 1-2 제품 등록후 생성된 제품pk를 가지고 [이미지 등록] 
@@ -48,7 +48,7 @@ public class ProductDao extends Dao {
 					} 
 					return true; // 제품등록과 이미지 등록 성공 했을때. 
 				}
-			}
+			
 			
 		}catch (Exception e) { System.out.println( e ); } return false;
 	}
