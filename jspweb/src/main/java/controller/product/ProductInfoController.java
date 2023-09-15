@@ -19,6 +19,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -123,6 +124,31 @@ public class ProductInfoController extends HttpServlet {
 	}
 	// 2. 제품 조회 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
+		String json = "";
+		ObjectMapper mapper = new ObjectMapper();
+		
+		if(type.equals("findByTop")) {
+			int count = Integer.parseInt(request.getParameter("count"));
+			List<ProductDto> result = ProductDao.getInstance().findByTop(count);
+			json = mapper.writeValueAsString(result);
+		}
+		else if( type.equals("findByLatLng")) {
+			String east = request.getParameter("east");		String west = request.getParameter("west");
+			String south = request.getParameter("south");	String north = request.getParameter("north");
+			
+			List<ProductDto> result = ProductDao.getInstance().findByLatLng(east, west, south, north);
+			json = mapper.writeValueAsString(result);
+		}
+		else if( type.equals("fundByPno")) {
+			int pno = Integer.parseInt(request.getParameter("pno"));
+			ProductDto result = ProductDao.getInstance().findByPno(pno);
+			json = mapper.writeValueAsString(result);
+		}
+		else if( type.equals("findByAll")) {
+			List<ProductDto> result = ProductDao.getInstance().findByAll();
+			json = mapper.writeValueAsString(result);
+		}
 	}
 	// 3. 제품 수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
