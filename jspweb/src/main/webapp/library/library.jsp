@@ -9,30 +9,35 @@
    <link href="library.css" rel="stylesheet">
 </head>
 <body>
-   <h1 class="title">도서관</h1>
-    <div class="librarywrap"> <!-- 전체구역 -->
-        <div class="button_wrap"> <!--  버튼 구역  -->
-            <div class="buttonarea">
-                <button data-lno="1" onclick="getValue(this)" type="button">1</button>
-                <button data-lno="2" onclick="getValue(this)" type="button">2</button>
-                <button data-lno="3" onclick="getValue(this)" type="button">3</button>
-                <button data-lno="4" onclick="getValue(this)" type="button">4</button>
-                <button data-lno="5" onclick="getValue(this)" type="button">5</button>
-                <button data-lno="6" onclick="getValue(this)" type="button">6</button>
-                <button data-lno="7" onclick="getValue(this)" type="button">7</button>
-                <button data-lno="8" onclick="getValue(this)" type="button">8</button>
+    <!-- jsp  파일안에 다른 jsp파일 import -->
+	<%@include file ="../header.jsp" %>
+    
+    <div class="wrap"> <!-- 전체구역 -->
+      <h3> 도서관 열람실 입실/퇴실 </h3>
+      <div class="contentbox"> <!-- 화면구역 -->
+         
+         <div class="seatarea"> <!-- 좌석구역 -->
+            <div><h4>열람실 좌석</h4></div>
+            <div class="seatBox">
+            	
             </div>
-        </div>
-        <div class="inputarea">
-            <input class="name" type="text" placeholder="이름">
-            <input class="phone" type="text" placeholder="전화번호">
-        </div>
-        <div class="bottom_button">
-            <button onclick="admission()" type="button">[ 입실 ]</button>
-            <button onclick="ldelete()" type="button">[ 퇴실 ]</button>
-        </div>
-    </div>
-
+         </div>
+         
+         <div class="inputBox"> <!-- 입력 구역 -->
+            <input class="nameInput" type="text" placeholder="이름">
+            <input class="phoneInput" type="text" placeholder="전화번호 - 포함 ">
+         </div>
+         
+      </div>
+      <div class="buttonBox"> <!-- 버튼구역 -->
+         <button onclick="enterseat()" class="btnEnter" type="button"> 입실 </button>
+         <button onclick="outseat()" class="btnOut" type="button">  퇴실 </button>
+      </div>
+   </div> <!-- 전체구역 end-->
+   
+   <!-- jsp  파일안에 다른 jsp파일 import -->
+	<%@include file ="../footer.jsp" %>
+   
     <!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- js import -->

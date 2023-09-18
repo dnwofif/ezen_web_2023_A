@@ -1,7 +1,7 @@
 package controller.library;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,52 +15,53 @@ import model.dao.library.LibraryDao;
 import model.dto.library.LibraryDto;
 
 
-
-@WebServlet("/library")
+@WebServlet("/Library")
 public class Library extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public Library() { super();}
+    public Library() {
+        super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// 3. DAO 
-				ArrayList<LibraryDto> result = LibraryDao.getInstance().lread(Integer.parseInt(request.getParameter("lno") ));
-					// * JS는 ArrayList타입을 사용할수 없으므로 ArrayList타입 JSON배열로 변환해서 전달하자. [ 라이브러리 : jackson ]
-				ObjectMapper objectMapper = new ObjectMapper();
-				String jsonArray = objectMapper.writeValueAsString( result ); // JSON타입으로 변환은 불가능하지만 JSON형식의 문자열타입 로 변환 
-					System.out.println( jsonArray );
-				// 4. 응답 
-				// response.getWriter().print(result); // 응답은 가능하나... js가  ArrayList타입 사용이 불가능 [ 문제발생 ]
-				response.setContentType("application/json;charset=UTF-8");
-				response.getWriter().print( jsonArray );
+		List<LibraryDto> list = LibraryDao.getInstance().seatPrint();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(list);
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(json);
+		System.out.println("자바통신");
+		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	      int lno = Integer.parseInt(request.getParameter("lno")); System.out.println(lno);
-	      String name = request.getParameter("name"); System.out.println(name);
-	      String phone = request.getParameter("phone"); System.out.println(phone);
-	      
-	      
-	      LibraryDto dto = new libraryDto(lno,name,phone);
-	      
-	      boolean result = libraryDao.getInstance().lwriter(dto);
-	      
-	      response.setContentType("text/html;charset=UTF-8");
-	      response.getWriter().print(result);
-	      
-	   }
-
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// 1. AJAX data 데이터 요청한다.
-				int lno = Integer.parseInt(request.getParameter("lno"));
-				// 2. (데이터 많으면)객체화
-				// 3. Dao에게 전달후 SQL결과를 받는다.
-				boolean result = libraryDao.getInstance().ldelete(lno);
-				// 4. 결과를 AJAX에게 전달한다.
-				 response.setContentType("application/json; charset=UTF-8");
-				 response.getWriter().print(result);
+		LibraryDto dto = new LibraryDto();
+		dto.setSno(Integer.parseInt(request.getParameter("sno")));
+		dto.setUname(request.getParameter("name"));
+		dto.setUphone(request.getParameter("phone"));
+		
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(LibraryDao.getInstance().enterSeat(dto));
+		System.out.println("자바통신 post");
+		
+		
 	}
 
-}
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	  protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		      LibraryDto dto = new LibraryDto();
+		      dto.setSno(Integer.parseInt(request.getParameter("sno")));
+		      dto.setUphone(request.getParameter("phone"));
+		      boolean result = LibraryDao.getInstance().exitSeat(dto);
+		      System.out.println("dto : "+dto);
+		   
+		      response.setContentType("application/json;charset=UTF-8");
+		      response.getWriter().print(result);
+		      }
+
+		}
