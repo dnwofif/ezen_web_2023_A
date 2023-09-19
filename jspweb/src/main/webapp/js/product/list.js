@@ -21,14 +21,15 @@ kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 // 1. 현재 보고 있는 지도의 동서남북 좌표 얻기 
 getInfo();
 function getInfo() {
-    let 동 = map.getBounds().pa; console.log( "동:"+동 ) // 동
-    let 서 = map.getBounds().qa; console.log( "서:"+서 )// 서
-    let 남 = map.getBounds().ha; console.log( "남:"+남 )// 남 
-    let 북 = map.getBounds().oa; console.log( "북:"+북 )// 북 
+    let 북 = map.getBounds().pa; console.log( "북:"+북 ) // 동
+    let 남 = map.getBounds().qa; console.log( "남:"+남 )// 서
+    let 서 = map.getBounds().ha; console.log( "서:"+서 )// 남 
+    let 동 = map.getBounds().oa; console.log( "동:"+동 )// 북 
  	findByLatLng( 동 , 서 , 남 , 북 ); // 2번 실행 
 }
 // 2. 현재카카오지도내 보고있는 동서남북 기준내 제품들을 출력 함수 
 function findByLatLng( east , west  ,  south  , north  ) {
+	clusterer.clear(); // * 클러스터내 모든 마커를 초기화
 	$.ajax({
 		url : "/jspweb/ProductInfoController" , method : "get" ,
 		async : false , /* ajax 동기화설정 [비동기통신 async : true] / [동기통신 async : false] */
@@ -40,6 +41,33 @@ function findByLatLng( east , west  ,  south  , north  ) {
 		        });
 		    });
 			clusterer.addMarkers(markers);
+			
+			// ------------------ 2. 사이드바에 제품 출력 ------------------------------------------ //
+			let sidebar = document.querySelector('.sidebar');
+			let html = ``;
+				// 
+				jsonArray.forEach( (p)=>{
+					html += `<div class="card mb-3" style="max-width: 540px;">	
+							  <div class="row g-0">	
+							    <div class="col-md-5">
+							    	<a href="/jspweb/product/view.jsp?pno=${ p.pno }" >
+							      		<img src="/jspweb/product/img/${ Object.values(p.imgList)[0] }" class="img-fluid rounded-start" alt="...">
+							    	</a>
+							    </div>
+							    <div class="col-md-7">
+							      <div class="card-body">
+							        <h5 class="card-title">${ p.pname }</h5>
+							        <p class="card-text">
+							        	<div> ${ p.pcontent } </div>
+							        	<div> ${ p.pprice.toLocaleString() } 원 </div>
+							        </p>
+							      </div>
+							    </div>
+							  </div>
+							</div>`
+				});
+			sidebar.innerHTML = html; 
+			
 		}
 	})
 } // f end 

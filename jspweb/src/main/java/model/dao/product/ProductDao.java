@@ -13,7 +13,6 @@ import model.dao.Dao;
 import model.dto.product.ProductDto;
 
 
-
 public class ProductDao extends Dao {
 
 	private static ProductDao productDao = new ProductDao();
@@ -69,7 +68,7 @@ public class ProductDao extends Dao {
 		try {
 			Map< Integer , String > imglist = new HashMap<>(); // 제품별 여러개 이미지 
 			String sql = "select * from productimg where pno = "+pno; 
-			PreparedStatement ps = conn.prepareStatement(sql);// * 다른 함수에서 먼저 사용중인 rs 인터페이스 객체 가 사용중 이므로 [ while ] 중복 사용불가능  // 해결방안 새로운 rs 만들기 ( PreparedStatement , ResultSet 2개 사용 )
+			ps = conn.prepareStatement(sql);// * 다른 함수에서 먼저 사용중인 rs 인터페이스 객체 가 사용중 이므로 [ while ] 중복 사용불가능  // 해결방안 새로운 rs 만들기 ( PreparedStatement , ResultSet 2개 사용 )
 			ResultSet rs =  ps.executeQuery();
 			while(rs.next() ) { imglist.put( rs.getInt("pimgno"), rs.getString("pimg") ); } return imglist;
 		}catch (Exception e) { System.out.println(e); } return null;
@@ -78,7 +77,7 @@ public class ProductDao extends Dao {
 	public ProductDto findByPno( int pno ){ 
 		try { 
 			String sql ="select * from product p natural join pcategory pc natural join member m where p.pno="+pno;
-			PreparedStatement ps = conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			if( rs.next() ) {
 				ProductDto productDto = new ProductDto(
@@ -103,10 +102,14 @@ public class ProductDao extends Dao {
 	public List<ProductDto> findByLatLng( String east , String west , String south , String north ){ 
 		try { 	// 제품의 경도가 '동쪽' 작고 경도가 '서쪽' 크고 / 제품의 경도가 '남쪽' 작고 '북쪽' 크다. 
 			List<ProductDto> list = new ArrayList<>();
-			String sql = "select pno from product where plat <= ? and plat >= ? and plng >= ? and plng <= ? "
+			String sql = "select * from product "
+					+ "	where	plat <= ? and "
+					+ "			plat >= ? and "
+					+ "			plng >= ? and "
+					+ "			plng <= ? "
 					+ " order by pdate desc";
 			ps = conn.prepareStatement(sql);  
-			ps.setString( 1 , east ); ps.setString( 2 , west ); ps.setString( 3 , south ); ps.setString( 4 , north );
+			ps.setString( 4 , east ); ps.setString( 3 , west ); ps.setString( 2 , south ); ps.setString( 1 , north );
 			rs = ps.executeQuery();	System.out.println( ps );
 			while( rs.next() ) {  list.add( findByPno( rs.getInt("pno") ) ); 	} return list;
 		} catch (Exception e) { System.out.println(e); } return null; 
