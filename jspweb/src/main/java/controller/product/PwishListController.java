@@ -42,6 +42,7 @@ public class PwishListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String type = request.getParameter("type");
+		System.out.println(type);
 		if(type.equals("findByWish")) {
 			int pno = Integer.parseInt( request.getParameter("pno" ) );
 			int mno = ( (MemberDto)request.getSession().getAttribute("loginDto") ).getMno() ;

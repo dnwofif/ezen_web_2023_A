@@ -60,7 +60,7 @@ function getWish(){
 	$.ajax({
 		url : "/jspweb/PwishListController", method : "get" , 
 		async : false ,	// 동기화
-		data : { pno : pno } , 
+		data : { pno : pno ,type : 'findByWish'} , 
 		success : result => { 
 			if( result ){ wish.innerHTML = '♥'; }
 			else{ wish.innerHTML = '♡'; }
